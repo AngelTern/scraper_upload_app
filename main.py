@@ -1,249 +1,356 @@
 # main.py
 
-import tkinter as tk
-from tkinter import messagebox, ttk
+import pyperclip
+import ttkbootstrap as ttk
+from ttkbootstrap.constants import *
 from scraper import run_scraper
 from uploader import run_uploader
 import threading
 import os
 import json
+import tkinter as tk
+from tkinter import messagebox 
+import sys
+import json.decoder  
 
-# Path to the users.json file
-USERS_FILE = 'users.json'
+CONFIG_FILE = 'config.json'
 
 class RealEstateApp:
     def __init__(self, root):
         self.root = root
         self.root.title("ESTAGE UPLOADER")
-        self.root.geometry("600x600")
-        self.root.configure(bg='#f0f0f0')
+        self.root.geometry("800x700")
 
-        # Style configuration
-        self.style = ttk.Style()
-        self.style.configure('TLabel', background='#f0f0f0', font=('Arial', 12))
-        self.style.configure('TButton', font=('Arial', 12))
-        self.style.configure('TEntry', font=('Arial', 12))
-        self.style.configure('TCombobox', font=('Arial', 12))
-        self.style.configure('Header.TLabel', font=('Arial', 18, 'bold'))
+        try:
+            self.root.iconbitmap('logo.ico')
+        except Exception as e:
+            print(f"Icon file not found: {e}")
 
-        # Load users from JSON
-        self.users = self.load_users()
+        self.login_frame = None
+        self.main_frame = None
 
-        # Header label
-        self.header_label = ttk.Label(root, text="ESTAGE UPLOADER", style='Header.TLabel')
-        self.header_label.pack(pady=10)
+        self.user_config = self.load_or_create_config()
 
-        # Notebook (Tabs)
-        self.notebook = ttk.Notebook(root)
-        self.notebook.pack(expand=True, fill='both')
+        self.all_ad_ids = self.get_all_ad_ids()
 
-        # Tab frames
+        self.build_ui()
+
+    def load_or_create_config(self):
+        if os.path.exists(CONFIG_FILE):
+            try:
+                with open(CONFIG_FILE, 'r') as f:
+                    config = json.load(f)
+                if 'email' in config and 'password' in config and 'name' in config:
+                    return config
+                else:
+                    raise json.decoder.JSONDecodeError("Missing fields", "", 0)
+            except json.decoder.JSONDecodeError:
+                messagebox.showerror("Configuration Error", "config.json is corrupted or missing required fields. Please re-enter your credentials.")
+                os.remove(CONFIG_FILE)
+                return self.show_login_frame()
+        else:
+            return self.show_login_frame()
+
+    def show_login_frame(self):
+        if self.main_frame:
+            self.main_frame.pack_forget()
+
+        self.login_frame = ttk.Frame(self.root)
+        self.login_frame.pack(expand=True, fill='both', pady=50)
+
+        login_title = ttk.Label(self.login_frame, text="Please Log In", font=('Helvetica', 18, 'bold'))
+        login_title.pack(pady=20)
+
+        email_label = ttk.Label(self.login_frame, text="Email:")
+        email_label.pack(pady=10)
+        self.email_entry = ttk.Entry(self.login_frame, width=40)
+        self.email_entry.pack(pady=5)
+
+        password_label = ttk.Label(self.login_frame, text="Password:")
+        password_label.pack(pady=10)
+        self.password_entry = ttk.Entry(self.login_frame, width=40, show='*')
+        self.password_entry.pack(pady=5)
+        
+        name_label = ttk.Label(self.login_frame, text="სახელი")
+        name_label.pack(pady=10)
+        self.name_entry = ttk.Entry(self.login_frame, width=40, show='*')
+        self.name_entry.pack(pady=5)
+
+        login_button = ttk.Button(self.login_frame, text="Login", command=self.handle_login, style='primary.TButton')
+        login_button.pack(pady=20)
+
+        return None
+
+    def handle_login(self):
+        email = self.email_entry.get().strip()
+        password = self.password_entry.get().strip()
+        name = self.name_entry.get().strip()
+
+        if not email or not password:
+            messagebox.showerror("Input Error", "Please enter both email and password.", parent=self.root)
+            return
+
+        config = {
+            'email': email,
+            'password': password,
+            "name": name
+        }
+        try:
+            with open(CONFIG_FILE, 'w') as f:
+                json.dump(config, f, indent=4)
+        except Exception as e:
+            messagebox.showerror("File Error", f"Failed to save configuration: {e}", parent=self.root)
+            return
+
+        self.user_config = config
+
+        if self.login_frame:
+            self.login_frame.pack_forget()
+            self.login_frame.destroy()
+            self.login_frame = None
+        self.build_main_frame()
+
+    def build_ui(self):
+        if self.user_config:
+            self.build_main_frame()
+        else:
+            pass
+
+    def build_main_frame(self):
+        self.main_frame = ttk.Frame(self.root)
+        self.main_frame.pack(expand=True, fill='both', pady=10)
+
+        header_frame = ttk.Frame(self.main_frame)
+        header_frame.pack(fill='x')
+
+        header_label = ttk.Label(
+            header_frame, 
+            text="ESTAGE UPLOADER", 
+            style='primary.TLabel', 
+            font=('Helvetica', 24, 'bold')
+        )
+        header_label.pack(pady=20)
+
+        self.notebook = ttk.Notebook(self.main_frame)
+        self.notebook.pack(expand=True, fill='both', pady=10)
+
         self.scrape_upload_frame = ttk.Frame(self.notebook)
         self.upload_existing_frame = ttk.Frame(self.notebook)
-        self.user_management_frame = ttk.Frame(self.notebook)
         self.notebook.add(self.scrape_upload_frame, text='Scrape & Upload')
         self.notebook.add(self.upload_existing_frame, text='Upload Existing')
-        self.notebook.add(self.user_management_frame, text='User Management')
 
-        # Initialize variables
-        self.selected_user = tk.StringVar()
-        self.url = tk.StringVar()
-        self.agency_price = tk.StringVar()
-        self.ad_id = ''
-        self.headless_var = tk.BooleanVar()
-        self.existing_ad_id = tk.StringVar()
 
-        # Build the tabs
+        self.url = ttk.StringVar()
+        self.agency_price = ttk.StringVar()
+        self.comment = ttk.StringVar()
+        self.headless_var_scrape = ttk.BooleanVar(value=True)  
+
+        self.existing_ad_id = ttk.StringVar()
+        self.headless_var_upload = ttk.BooleanVar(value=True)  
+        self.upload_link = ttk.StringVar()
+
         self.build_scrape_upload_tab()
         self.build_upload_existing_tab()
-        self.build_user_management_tab()
 
-    def load_users(self):
-        if os.path.exists(USERS_FILE):
-            with open(USERS_FILE, 'r') as f:
-                return json.load(f)
-        else:
-            return {}
-
-    def save_users(self):
-        with open(USERS_FILE, 'w') as f:
-            json.dump(self.users, f, indent=4)
+        change_user_button = ttk.Button(
+            self.main_frame, 
+            text="Change User", 
+            command=self.change_user, 
+            style='danger.TButton'
+        )
+        change_user_button.pack(pady=10)
 
     def build_scrape_upload_tab(self):
         frame = self.scrape_upload_frame
 
-        # User selection
-        label_user = ttk.Label(frame, text="Select User:")
-        label_user.pack(pady=5)
-        self.user_combobox = ttk.Combobox(frame, values=list(self.users.keys()), state="readonly", textvariable=self.selected_user)
-        self.user_combobox.pack(pady=5)
-
-        # URL input
         label_url = ttk.Label(frame, text="Enter URL:")
-        label_url.pack(pady=5)
-        entry_url = ttk.Entry(frame, textvariable=self.url, width=50)
-        entry_url.pack(pady=5)
+        label_url.pack(pady=5, anchor='w', padx=20)
+        entry_url = ttk.Entry(frame, textvariable=self.url, width=60)
+        entry_url.pack(pady=5, fill='x', padx=20)
 
-        # Agency Price input
         label_price = ttk.Label(frame, text="Agency Price:")
-        label_price.pack(pady=5)
-        entry_price = ttk.Entry(frame, textvariable=self.agency_price, width=20)
-        entry_price.pack(pady=5)
+        label_price.pack(pady=5, anchor='w', padx=20)
+        entry_price = ttk.Entry(frame, textvariable=self.agency_price, width=60)
+        entry_price.pack(pady=5, fill='x', padx=20)
 
-        # Headless mode checkbox
-        checkbox_headless = ttk.Checkbutton(frame, text="Run in headless mode", variable=self.headless_var)
-        checkbox_headless.pack(pady=5)
+        label_comment = ttk.Label(frame, text="Comment:")
+        label_comment.pack(pady=5, anchor='w', padx=20)
+        entry_comment = ttk.Entry(frame, textvariable=self.comment, width=60)
+        entry_comment.pack(pady=5, fill='x', padx=20)
 
-        # Run button
-        run_button = ttk.Button(frame, text="Run", command=self.start_scrape_upload)
+        checkbox_headless = ttk.Checkbutton(
+            frame, 
+            text="Run in headless mode", 
+            variable=self.headless_var_scrape
+        )
+        checkbox_headless.pack(pady=5, anchor='w', padx=20)
+
+        run_button = ttk.Button(
+            frame, 
+            text="Run", 
+            command=self.start_scrape_upload, 
+            style='success.TButton'
+        )
         run_button.pack(pady=20)
 
     def build_upload_existing_tab(self):
         frame = self.upload_existing_frame
 
-        # User selection
-        label_user = ttk.Label(frame, text="Select User:")
-        label_user.pack(pady=5)
-        self.user_combobox_existing = ttk.Combobox(frame, values=list(self.users.keys()), state="readonly", textvariable=self.selected_user)
-        self.user_combobox_existing.pack(pady=5)
+        label_ad_id = ttk.Label(frame, text="Enter Ad ID:")
+        label_ad_id.pack(pady=5, anchor='w', padx=20)
+        self.ad_id_entry = ttk.Entry(frame, textvariable=self.existing_ad_id, width=60)
+        self.ad_id_entry.pack(pady=5, fill='x', padx=20)
+        self.ad_id_entry.bind('<KeyRelease>', self.update_ad_id_autocomplete)
 
-        # Ad ID selection with Combobox
-        label_ad_id = ttk.Label(frame, text="Select Ad ID:")
-        label_ad_id.pack(pady=5)
-        self.ad_id_combobox = ttk.Combobox(frame, textvariable=self.existing_ad_id, state="readonly")
-        self.ad_id_combobox.pack(pady=5)
-        self.populate_ad_id_combobox()
+        self.ad_id_listbox = tk.Listbox(frame, height=5)
+        self.ad_id_listbox.pack(pady=5, fill='x', padx=20)
+        self.ad_id_listbox.bind('<<ListboxSelect>>', self.on_ad_id_select)
+        self.ad_id_listbox.pack_forget() 
 
-        # Headless mode checkbox
-        checkbox_headless = ttk.Checkbutton(frame, text="Run in headless mode", variable=self.headless_var)
-        checkbox_headless.pack(pady=5)
+        checkbox_headless = ttk.Checkbutton(
+            frame, 
+            text="Run in headless mode", 
+            variable=self.headless_var_upload
+        )
+        checkbox_headless.pack(pady=5, anchor='w', padx=20)
 
-        # Run button
-        run_button = ttk.Button(frame, text="Upload", command=self.start_upload_existing)
+        run_button = ttk.Button(
+            frame, 
+            text="Upload", 
+            command=self.start_upload_existing, 
+            style='success.TButton'
+        )
         run_button.pack(pady=20)
 
-    def build_user_management_tab(self):
-        frame = self.user_management_frame
+        self.final_url_label = ttk.Label(frame, textvariable=self.upload_link, foreground="blue", cursor="hand2", wraplength=700)
+        self.final_url_label.pack(pady=10, padx=20)
+        self.final_url_label.bind("<Button-1>", self.open_url)
 
-        # Add User Section
-        add_user_label = ttk.Label(frame, text="Add New User", font=('Arial', 14, 'bold'))
-        add_user_label.pack(pady=10)
-
-        # New user details
-        self.new_user_key = tk.StringVar()
-        self.new_username = tk.StringVar()
-        self.new_password = tk.StringVar()
-        self.new_phone_number = tk.StringVar()
-
-        label_user_key = ttk.Label(frame, text="User Key:")
-        label_user_key.pack(pady=5)
-        entry_user_key = ttk.Entry(frame, textvariable=self.new_user_key)
-        entry_user_key.pack(pady=5)
-
-        label_username = ttk.Label(frame, text="Username:")
-        label_username.pack(pady=5)
-        entry_username = ttk.Entry(frame, textvariable=self.new_username)
-        entry_username.pack(pady=5)
-
-        label_password = ttk.Label(frame, text="Password:")
-        label_password.pack(pady=5)
-        entry_password = ttk.Entry(frame, textvariable=self.new_password, show='*')
-        entry_password.pack(pady=5)
-
-        label_phone_number = ttk.Label(frame, text="Phone Number:")
-        label_phone_number.pack(pady=5)
-        entry_phone_number = ttk.Entry(frame, textvariable=self.new_phone_number)
-        entry_phone_number.pack(pady=5)
-
-        # Add User Button
-        add_user_button = ttk.Button(frame, text="Add User", command=self.add_user)
-        add_user_button.pack(pady=10)
-
-        # Separator
-        separator = ttk.Separator(frame, orient='horizontal')
-        separator.pack(fill='x', pady=20)
-
-        # Delete User Section
-        delete_user_label = ttk.Label(frame, text="Delete User", font=('Arial', 14, 'bold'))
-        delete_user_label.pack(pady=10)
-
-        # User selection for deletion
-        label_select_user = ttk.Label(frame, text="Select User to Delete:")
-        label_select_user.pack(pady=5)
-        self.delete_user_combobox = ttk.Combobox(frame, values=list(self.users.keys()), state="readonly")
-        self.delete_user_combobox.pack(pady=5)
-
-        # Delete User Button
-        delete_user_button = ttk.Button(frame, text="Delete User", command=self.delete_user)
-        delete_user_button.pack(pady=10)
+        copy_button = ttk.Button(
+            frame, 
+            text="Copy URL", 
+            command=self.copy_url, 
+            state='disabled',
+            style='info.TButton'
+        )
+        copy_button.pack(pady=5)
+        self.copy_button = copy_button  
 
     def start_scrape_upload(self):
-        if not self.validate_user_selection():
+        if not self.validate_scrape_upload_inputs():
             return
-        if not self.url.get() or not self.agency_price.get():
-            messagebox.showerror("Input Error", "Please enter both URL and agency price.")
-            return
-        threading.Thread(target=self.run_scrape_upload).start()
+        threading.Thread(target=self.run_scrape_upload, daemon=True).start()
 
     def run_scrape_upload(self):
         try:
-            headless = self.headless_var.get()
-            # Run the scraper
-            self.ad_id = run_scraper(self.url.get(), self.agency_price.get(), headless=headless)
-            if not self.ad_id:
-                messagebox.showerror("Error", "Scraping failed. Check the URL and try again.")
-                return
-            # After scraping, run the uploader
-            user_info = self.users[self.selected_user.get()]
-            run_uploader(
-                username=user_info['username'],
-                password=user_info['password'],
-                phone_number=user_info['phone_number'],
-                ad_id=self.ad_id,
-                enter_description=True,
+            headless = self.headless_var_scrape.get()
+            ad_id = run_scraper(
+                self.url.get(), 
+                self.agency_price.get(), 
+                comment=self.comment.get(),
                 headless=headless
             )
-            messagebox.showinfo("Success", "Process completed successfully.")
-            # Refresh the ad ID combobox in case a new ad ID was added
-            self.populate_ad_id_combobox()
-        except Exception as e:
-            messagebox.showerror("Error", f"An error occurred: {e}")
-
-    def start_upload_existing(self):
-        if not self.validate_user_selection():
-            return
-        ad_id = self.existing_ad_id.get()
-        if not ad_id:
-            messagebox.showerror("Input Error", "Please select an Ad ID.")
-            return
-        threading.Thread(target=self.run_upload_existing, args=(ad_id,)).start()
-
-    def run_upload_existing(self, ad_id):
-        try:
-            headless = self.headless_var.get()
-            # Run the uploader
-            user_info = self.users[self.selected_user.get()]
-            run_uploader(
-                username=user_info['username'],
-                password=user_info['password'],
-                phone_number=user_info['phone_number'],
+            if not ad_id:
+                self.show_error("Scraping failed. Check the URL and try again.")
+                return
+            with open(CONFIG_FILE, 'r') as f:
+                config = json.load(f)
+            json_file_path = os.path.join("data", ad_id, f"{ad_id}.json")
+            if not os.path.exists(json_file_path):
+                self.show_error("Scraped data file not found.")
+                return
+            with open(json_file_path, 'r', encoding='utf-8') as jf:
+                scraped_data = json.load(jf)
+            phone_number = scraped_data.get("phone_number", "")
+            final_url = run_uploader(
+                username=config['email'],  
+                password=config['password'],
+                phone_number=phone_number,
                 ad_id=ad_id,
                 enter_description=True,
                 headless=headless
             )
-            messagebox.showinfo("Success", "Upload completed successfully.")
+            if final_url:
+                self.show_info("Process completed successfully.")
+                self.upload_link.set(f"Upload Successful!\nFinal URL: {final_url}")
+                self.copy_button.config(state='normal')
+            else:
+                self.show_error("Upload failed. Please check the logs for more details.")
+            self.all_ad_ids = self.get_all_ad_ids()
         except Exception as e:
-            messagebox.showerror("Error", f"An error occurred: {e}")
+            self.show_error(f"An error occurred: {e}")
 
-    def validate_user_selection(self):
-        if not self.selected_user.get():
-            messagebox.showerror("User Selection", "Please select a user.")
+    def start_upload_existing(self):
+        if not self.validate_upload_existing_inputs():
+            return
+        ad_id = self.existing_ad_id.get()
+        threading.Thread(target=self.run_upload_existing, args=(ad_id,), daemon=True).start()
+
+    def run_upload_existing(self, ad_id):
+        try:
+            headless = self.headless_var_upload.get()
+            with open(CONFIG_FILE, 'r') as f:
+                config = json.load(f)
+            json_file_path = os.path.join("data", ad_id, f"{ad_id}.json")
+            if not os.path.exists(json_file_path):
+                self.show_error("Scraped data file not found.")
+                return
+            with open(json_file_path, 'r', encoding='utf-8') as jf:
+                scraped_data = json.load(jf)
+            phone_number = scraped_data.get("phone_number", "")
+            final_url = run_uploader(
+                username=config['email'],  
+                password=config['password'],
+                phone_number=phone_number,
+                ad_id=ad_id,
+                enter_description=True,
+                headless=headless
+            )
+            if final_url:
+                self.upload_link.set(f"Upload Successful!\nFinal URL: {final_url}")
+                self.copy_button.config(state='normal')
+            else:
+                self.show_error("Upload failed. Please check the logs for more details.")
+        except Exception as e:
+            self.show_error(f"An error occurred: {e}")
+
+    def validate_scrape_upload_inputs(self):
+        if not self.url.get() or not self.agency_price.get():
+            messagebox.showerror("Input Error", "Please enter both URL and agency price.")
             return False
         return True
 
-    def populate_ad_id_combobox(self):
-        ad_ids = self.get_all_ad_ids()
-        self.ad_id_combobox['values'] = ad_ids
+    def validate_upload_existing_inputs(self):
+        if not self.existing_ad_id.get():
+            messagebox.showerror("Input Error", "Please enter an Ad ID.")
+            return False
+        return True
+
+    def update_ad_id_autocomplete(self, event):
+        typed = self.existing_ad_id.get()
+        data = []
+        if typed == '':
+            data = self.all_ad_ids
+        else:
+            data = [ad_id for ad_id in self.all_ad_ids if typed.lower() in ad_id.lower()]
+        if data:
+            self.update_ad_id_listbox(data)
+            self.ad_id_listbox.pack(pady=5, fill='x', padx=20)  
+        else:
+            self.ad_id_listbox.pack_forget()  
+
+    def update_ad_id_listbox(self, data):
+        self.ad_id_listbox.delete(0, tk.END)
+        for item in data:
+            self.ad_id_listbox.insert(tk.END, item)
+
+    def on_ad_id_select(self, event):
+        selected_indices = self.ad_id_listbox.curselection()
+        if selected_indices:
+            index = selected_indices[0]
+            selected_ad_id = self.ad_id_listbox.get(index)
+            self.existing_ad_id.set(selected_ad_id)
+            self.ad_id_listbox.pack_forget()
 
     def get_all_ad_ids(self):
         data_folder = 'data'
@@ -251,56 +358,47 @@ class RealEstateApp:
             return []
         return [name for name in os.listdir(data_folder) if os.path.isdir(os.path.join(data_folder, name))]
 
-    def add_user(self):
-        user_key = self.new_user_key.get().strip()
-        username = self.new_username.get().strip()
-        password = self.new_password.get().strip()
-        phone_number = self.new_phone_number.get().strip()
-
-        if not user_key or not username or not password or not phone_number:
-            messagebox.showerror("Input Error", "Please fill in all fields.")
-            return
-
-        if user_key in self.users:
-            messagebox.showerror("Error", "User key already exists.")
-            return
-
-        self.users[user_key] = {
-            'username': username,
-            'password': password,
-            'phone_number': phone_number
-        }
-        self.save_users()
-        messagebox.showinfo("Success", "User added successfully.")
-        self.update_user_comboboxes()
-        # Clear input fields
-        self.new_user_key.set('')
-        self.new_username.set('')
-        self.new_password.set('')
-        self.new_phone_number.set('')
-
-    def delete_user(self):
-        user_key = self.delete_user_combobox.get()
-        if not user_key:
-            messagebox.showerror("Input Error", "Please select a user to delete.")
-            return
-
-        confirm = messagebox.askyesno("Confirm Delete", f"Are you sure you want to delete user '{user_key}'?")
+    def change_user(self):
+        confirm = messagebox.askyesno("Change User", "Are you sure you want to change the user?")
         if confirm:
-            del self.users[user_key]
-            self.save_users()
-            messagebox.showinfo("Success", "User deleted successfully.")
-            self.update_user_comboboxes()
+            if os.path.exists(CONFIG_FILE):
+                try:
+                    os.remove(CONFIG_FILE)
+                except Exception as e:
+                    messagebox.showerror("File Error", f"Failed to delete config.json: {e}")
+                    return
+            if self.main_frame:
+                self.main_frame.pack_forget()
+                self.main_frame.destroy()
+                self.main_frame = None
+            self.show_login_frame()
 
-    def update_user_comboboxes(self):
-        # Update user selection comboboxes in all tabs
-        user_keys = list(self.users.keys())
-        self.user_combobox['values'] = user_keys
-        self.user_combobox_existing['values'] = user_keys
-        self.delete_user_combobox['values'] = user_keys
+    def show_error(self, message):
+        self.root.after(0, lambda: messagebox.showerror("Error", message))
 
-# Initialize and run the application
+    def show_info(self, message):
+        self.root.after(0, lambda: messagebox.showinfo("Success", message))
+
+    def open_url(self, event):
+        import webbrowser
+        url = self.upload_link.get().split("Final URL: ")[-1]
+        webbrowser.open(url)
+
+    def copy_url(self):
+        url = self.upload_link.get().split("Final URL: ")[-1]
+        pyperclip.copy(url)
+        messagebox.showinfo("Copied", "URL has been copied to clipboard.")
+
+    def center_window(self, window, width, height):
+        screen_width = window.winfo_screenwidth()
+        screen_height = window.winfo_screenheight()
+
+        x = (screen_width // 2) - (width // 2)
+        y = (screen_height // 2) - (height // 2)
+        window.geometry(f'{width}x{height}+{x}+{y}')
+
 if __name__ == "__main__":
-    root = tk.Tk()
-    app = RealEstateApp(root)
-    root.mainloop()
+
+    app = ttk.Window(themename="flatly")
+    RealEstateApp(app)
+    app.mainloop()

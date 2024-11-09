@@ -107,7 +107,7 @@ def extract_additional_info_updated(driver):
         print(f"Error extracting additional info: {e}")
     return additional_info
 
-def run_scraper(url, agency_price, headless=False):
+def run_scraper(url, agency_price, comment="", headless=False):
     options = webdriver.ChromeOptions()
     if headless:
         options.add_argument('--headless')
@@ -115,6 +115,8 @@ def run_scraper(url, agency_price, headless=False):
         options.add_argument('--window-size=1920,1080')
 
     driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
+
+    driver.maximize_window()
 
     driver.get(url)
     time.sleep(0.5)
@@ -131,8 +133,14 @@ def run_scraper(url, agency_price, headless=False):
 
         ad_title = driver.find_element(By.CLASS_NAME, "sc-6e54cb25-0.gDYjuA").text if driver.find_elements(By.CLASS_NAME, "sc-6e54cb25-0.gDYjuA") else 'N/A'
 
-        location = driver.find_element(By.ID, "address").text if driver.find_elements(By.ID, "address") else 'N/A'
-        location = re.sub(r'\d+$', '', location).strip()  # Remove trailing numbers from the street name
+        location_full = driver.find_element(By.ID, "address").text if driver.find_elements(By.ID, "address") else 'N/A'
+        match = re.search(r'(\d+)$', location_full)
+        if match:
+            number = match.group(1)
+            location = location_full[:match.start()].strip()
+        else:
+            number = ''
+            location = location_full.strip()
 
         images = driver.find_elements(By.CLASS_NAME, "sc-1acce1b7-10.kCJmmf")
         image_links = [img.get_attribute("src")[:-10] + ".jpg" for img in images]
@@ -165,12 +173,14 @@ def run_scraper(url, agency_price, headless=False):
             "ad_id": ad_id,
             "ad_title": ad_title,
             "location": location,
+            "number": number,
             "images": image_links,
             "owner_price": owner_price,
             "agency_price": agency_price,
             "phone_number": phone_number,
             "name": name,
             "description": description,
+            "comment": comment,
             "property_details": property_details,
             "additional_info": additional_info,
             "breadcrumbs": breadcrumbs_data,
@@ -181,7 +191,7 @@ def run_scraper(url, agency_price, headless=False):
             json.dump(data, json_file, ensure_ascii=False, indent=4)
 
         print("Data successfully saved.")
-        return ad_id  # Return ad_id for further use
+        return ad_id
 
     except Exception as e:
         print(f"Error occurred: {e}")
