@@ -131,6 +131,9 @@ class RealEstateApp:
             pass
 
     def build_main_frame(self):
+        self.ensure_data_folder_exists()
+        self.ensure_excel_file_exists()
+
         self.main_frame = ttk.Frame(self.root)
         self.main_frame.pack(expand=True, fill='both', pady=10)
 
@@ -171,7 +174,6 @@ class RealEstateApp:
         self.upload_description_var_scrape = ttk.BooleanVar(value=True)
 
         self.existing_ad_id = ttk.StringVar()
-        self.headless_var_upload = ttk.BooleanVar(value=True)
         self.upload_description_var_upload = ttk.BooleanVar(value=True)
         self.upload_link = ttk.StringVar()
 
@@ -194,6 +196,41 @@ class RealEstateApp:
             style='info.TButton'
         )
         open_excel_button.pack(pady=20, side='right')
+
+    def ensure_data_folder_exists(self):
+        data_folder = resource_path('data')
+        if not os.path.exists(data_folder):
+            try:
+                os.makedirs(data_folder)
+            except Exception as e:
+                messagebox.showerror("Folder Error", f"Failed to create data folder: {e}")
+
+    def ensure_excel_file_exists(self):
+        excel_file = 'scraped_data.xlsx'
+        excel_path = resource_path(excel_file)
+        if not os.path.exists(excel_path):
+            columns = [
+                "Ad ID",
+                "Ad Title",
+                "Location",
+                "Number",
+                "Owner Price",
+                "Agency Price",
+                "Phone Number",
+                "Name",
+                "Description",
+                "Comment",
+                "Property Details",
+                "Additional Info",
+                "Breadcrumbs",
+                "Features",
+                "Final URL"
+            ]
+            try:
+                df = pd.DataFrame(columns=columns)
+                df.to_excel(excel_path, index=False)
+            except Exception as e:
+                messagebox.showerror("Excel Error", f"Failed to create Excel file: {e}")
 
     def build_scrape_upload_tab(self):
         frame = self.scrape_upload_frame
@@ -222,7 +259,7 @@ class RealEstateApp:
 
         checkbox_headless = ttk.Checkbutton(
             frame,
-            text="Run in headless mode",
+            text="Run scraping in headless mode",
             variable=self.headless_var_scrape
         )
         checkbox_headless.pack(pady=5, anchor='w', padx=20)
@@ -320,13 +357,6 @@ class RealEstateApp:
             variable=self.upload_description_var_upload
         )
         upload_desc_checkbox.pack(pady=5, anchor='w', padx=20)
-
-        checkbox_headless = ttk.Checkbutton(
-            frame,
-            text="Run in headless mode",
-            variable=self.headless_var_upload
-        )
-        checkbox_headless.pack(pady=5, anchor='w', padx=20)
 
         self.progress_upload_existing = ttk.Progressbar(
             frame,
@@ -427,13 +457,14 @@ class RealEstateApp:
             }
 
             excel_file = 'scraped_data.xlsx'
-            if not os.path.exists(excel_file):
+            excel_path = resource_path(excel_file)
+            if not os.path.exists(excel_path):
                 df = pd.DataFrame([excel_data])
-                df.to_excel(excel_file, index=False)
+                df.to_excel(excel_path, index=False)
             else:
-                df = pd.read_excel(excel_file)
+                df = pd.read_excel(excel_path)
                 df = pd.concat([df, pd.DataFrame([excel_data])], ignore_index=True)
-                df.to_excel(excel_file, index=False)
+                df.to_excel(excel_path, index=False)
 
             user_info = self.user_config
 
@@ -447,7 +478,7 @@ class RealEstateApp:
                 phone_number=scraped_data.get("phone_number", ""),
                 ad_id=ad_id,
                 enter_description=upload_description,
-                headless=headless,
+                headless=False,
                 stop_event=self.thread_stop_event
             )
 
@@ -532,13 +563,14 @@ class RealEstateApp:
             }
 
             excel_file = 'scraped_data.xlsx'
-            if not os.path.exists(excel_file):
+            excel_path = resource_path(excel_file)
+            if not os.path.exists(excel_path):
                 df = pd.DataFrame([excel_data])
-                df.to_excel(excel_file, index=False)
+                df.to_excel(excel_path, index=False)
             else:
-                df = pd.read_excel(excel_file)
+                df = pd.read_excel(excel_path)
                 df = pd.concat([df, pd.DataFrame([excel_data])], ignore_index=True)
-                df.to_excel(excel_file, index=False)
+                df.to_excel(excel_path, index=False)
 
             self.show_info("Scraping completed successfully and data saved to Excel.")
         except Exception as e:
@@ -563,7 +595,6 @@ class RealEstateApp:
             self.progress_upload_existing.pack(pady=5, fill='x', padx=20)
             self.progress_upload_existing.start()
 
-            headless = self.headless_var_upload.get()
             upload_description = self.upload_description_var_upload.get()
             if self.thread_stop_event.is_set():
                 self.show_info("Process was stopped.")
@@ -579,7 +610,7 @@ class RealEstateApp:
                 phone_number=scraped_data.get("phone_number", ""),
                 ad_id=ad_id,
                 enter_description=upload_description,
-                headless=headless,
+                headless=False,
                 stop_event=self.thread_stop_event
             )
 

@@ -3,12 +3,13 @@
 import os
 import time
 import json
+import pyperclip
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
-from selenium.common.exceptions import NoSuchElementException, StaleElementReferenceException, TimeoutException
+from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.keys import Keys
 
 def custom_wait(driver, condition_function, timeout=10, poll_frequency=0.5, stop_event=None):
@@ -21,7 +22,8 @@ def custom_wait(driver, condition_function, timeout=10, poll_frequency=0.5, stop
                 return True
         except Exception:
             pass
-        time.sleep(poll_frequency)
+        if stop_event and stop_event.wait(poll_frequency):
+            return False
         if time.time() > end_time:
             break
     return False
@@ -125,7 +127,7 @@ def run_uploader(username, password, phone_number, ad_id, enter_description=True
             image_paths = [
                 os.path.abspath(os.path.join(image_folder, img))
                 for img in os.listdir(image_folder)
-                if img.endswith((".png", ".jpg", ".jpeg"))
+                if img.lower().endswith((".png", ".jpg", ".jpeg"))
             ]
             if image_paths:
                 for image_path in image_paths:
@@ -135,7 +137,9 @@ def run_uploader(username, password, phone_number, ad_id, enter_description=True
                     try:
                         image_input = driver.find_element(By.CSS_SELECTOR, "input[type='file']")
                         image_input.send_keys(image_path)
-                        time.sleep(0.5)
+                        if stop_event and stop_event.wait(0.5):
+                            driver.quit()
+                            return None
                     except Exception:
                         pass
 
@@ -149,7 +153,9 @@ def run_uploader(username, password, phone_number, ad_id, enter_description=True
             if not send_keys_to_element(driver, address_locator, location, stop_event=stop_event):
                 driver.quit()
                 return None
-            time.sleep(0.5)
+            if stop_event and stop_event.wait(0.5):
+                driver.quit()
+                return None
             address_input = driver.find_element(*address_locator)
             address_input.send_keys(Keys.DOWN)
             address_input.send_keys(Keys.ENTER)
@@ -157,6 +163,13 @@ def run_uploader(username, password, phone_number, ad_id, enter_description=True
         if stop_event and stop_event.is_set():
             driver.quit()
             return None
+
+        number = data.get("number", "")
+        if number:
+            number_input_locator = (By.CSS_SELECTOR, "#create-app-loc > div.sc-bb305ae5-3.iDHOHS > div.sc-bb305ae5-4.VxicA > div:nth-child(2) > label > div > input")
+            if not send_keys_to_element(driver, number_input_locator, number, stop_event=stop_event):
+                driver.quit()
+                return None
 
         rooms = data.get("property_details", {}).get("ოთახი", "")
         if rooms:
@@ -321,8 +334,6 @@ def run_uploader(username, password, phone_number, ad_id, enter_description=True
             driver.quit()
             return None
 
-        time.sleep(1000)
-        
         continue_button_locator = (By.CSS_SELECTOR, "button.sc-1c794266-1.dICGws.btn-next")
         if not click_element(driver, continue_button_locator, stop_event=stop_event):
             driver.quit()
@@ -332,9 +343,29 @@ def run_uploader(username, password, phone_number, ad_id, enter_description=True
             driver.quit()
             return None
 
-        time.sleep(2) 
+        final_element_locator = (By.CSS_SELECTOR, "#__next > div.sc-af3cf45-0.fWBmkz > div.sc-af3cf45-6.ijmwBP > button.sc-1c794266-1.hBiInR")
+        
+        def wait_for_final_element_and_click():
+            while not stop_event.is_set():
+                try:
+                    element = driver.find_element(*final_element_locator)
+                    element.click()
+                    if stop_event and stop_event.wait(1):
+                        driver.quit()
+                        return None
+                    final_url = pyperclip.paste()
+                    if final_url:
+                        return final_url
+                except NoSuchElementException:
+                    pass
+                except Exception as e:
+                    print(f"Error waiting for final element: {e}")
+                if stop_event and stop_event.wait(1):
+                    driver.quit()
+                    return None
+            return None
 
-        final_url = driver.current_url
+        final_url = wait_for_final_element_and_click()
 
         return final_url
 
