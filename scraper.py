@@ -121,7 +121,7 @@ def extract_property_details(driver, stop_event=None):
         pass
     return details
 
-def run_scraper(url, agency_price, comment="", headless=False, stop_event=None):
+def run_scraper(url, agency_price, comment="", headless=False, stop_event=None, output_dir=None):
     options = Options()
     if headless:
         options.add_argument('--headless')
@@ -159,7 +159,7 @@ def run_scraper(url, agency_price, comment="", headless=False, stop_event=None):
             driver.quit()
             return None
 
-        save_directory = os.path.join("data", ad_id)
+        save_directory = os.path.join(output_dir, ad_id)
         os.makedirs(save_directory, exist_ok=True)
 
         ad_title = None
@@ -320,8 +320,7 @@ def run_scraper(url, agency_price, comment="", headless=False, stop_event=None):
 
         return ad_id
 
-    except Exception as e:
-        print(f"Error occurred: {e}")
+    except Exception:
         return None
     finally:
         driver.quit()

@@ -11,6 +11,14 @@ from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.keys import Keys
+import logging
+
+
+logging.basicConfig(
+    filename=os.path.join(os.getcwd(), 'uploader.log'),
+    level=logging.INFO,
+    format='%(asctime)s:%(levelname)s:%(message)s'
+)
 
 def custom_wait(driver, condition_function, timeout=10, poll_frequency=0.5, stop_event=None):
     end_time = time.time() + timeout
@@ -43,15 +51,27 @@ def send_keys_to_element(driver, locator, keys, stop_event=None):
         return True
     return custom_wait(driver, condition_function=condition, timeout=10, poll_frequency=0.5, stop_event=stop_event)
 
-def run_uploader(username, password, phone_number, ad_id, enter_description=True, headless=False, stop_event=None):
-    data_folder = os.path.join("data", ad_id)
+def run_uploader(username, password, phone_number, ad_id, enter_description=True, headless=False, stop_event=None, output_dir=None):
+    if output_dir is None:
+        logging.error("Output directory not provided to run_uploader.")
+        return None
+    print(output_dir)
+    data_folder = os.path.join(output_dir, ad_id)
     json_file_path = os.path.join(data_folder, f"{ad_id}.json")
+    logging.info(f"Uploader looking for JSON file at: {json_file_path}")
+    print(json_file_path)
 
     if not os.path.exists(json_file_path):
+        logging.error(f"JSON file not found at: {json_file_path}")
         return None
 
     with open(json_file_path, "r", encoding="utf-8") as f:
-        data = json.load(f)
+        try:
+            data = json.load(f)
+            logging.info("JSON data loaded successfully.")
+        except json.JSONDecodeError as e:
+            logging.error(f"JSON decode error: {e}")
+            return None
 
     options = Options()
     if headless:
@@ -111,7 +131,7 @@ def run_uploader(username, password, phone_number, ad_id, enter_description=True
         if stop_event and stop_event.is_set():
             driver.quit()
             return None
-
+        time.sleep(0.5)
         transaction_type = data["breadcrumbs"]["transaction_type"]
         transaction_locator = (By.XPATH, f"//div[text()='{transaction_type}']")
         if not click_element(driver, transaction_locator, stop_event=stop_event):
@@ -121,7 +141,7 @@ def run_uploader(username, password, phone_number, ad_id, enter_description=True
         if stop_event and stop_event.is_set():
             driver.quit()
             return None
-
+        time.sleep(0.5)
         image_folder = os.path.join(data_folder, "images")
         if os.path.exists(image_folder):
             image_paths = [
@@ -159,7 +179,7 @@ def run_uploader(username, password, phone_number, ad_id, enter_description=True
             address_input = driver.find_element(*address_locator)
             address_input.send_keys(Keys.DOWN)
             address_input.send_keys(Keys.ENTER)
-
+        time.sleep(0.5)
         if stop_event and stop_event.is_set():
             driver.quit()
             return None
@@ -170,21 +190,24 @@ def run_uploader(username, password, phone_number, ad_id, enter_description=True
             if not send_keys_to_element(driver, number_input_locator, number, stop_event=stop_event):
                 driver.quit()
                 return None
-
+        time.sleep(0.5)
         rooms = data.get("property_details", {}).get("ოთახი", "")
+        #print(rooms)
         if rooms:
             rooms_locator = (By.XPATH, f"//div[@class='sc-226b651b-0 kgzsHg']/p[text()='{rooms}']")
             if not click_element(driver, rooms_locator, stop_event=stop_event):
                 driver.quit()
                 return None
-
+        time.sleep(0.5)
         if stop_event and stop_event.is_set():
             driver.quit()
             return None
-
+        time.sleep(0.5)
         bedrooms = data.get("property_details", {}).get("საძინებელი", "")
+        #print(bedrooms)
         if bedrooms:
-            bedrooms_locator = (By.XPATH, f"//div[@class='sc-226b651b-0 kgzsHg']/p[text()='{bedrooms}']")
+            
+            bedrooms_locator = (By.XPATH, f"//div[@class='sc-e8a87f7a-0 dMKNFB']/div[@class='sc-e8a87f7a-1 bilVxg'][2]/div[@class='sc-e8a87f7a-3 gdEkZl']/div[@class='sc-e8a87f7a-4 jdtBxj']/div[@class='sc-226b651b-0 kgzsHg']/p[text()='{bedrooms}']")
             if not click_element(driver, bedrooms_locator, stop_event=stop_event):
                 driver.quit()
                 return None
@@ -192,7 +215,7 @@ def run_uploader(username, password, phone_number, ad_id, enter_description=True
         if stop_event and stop_event.is_set():
             driver.quit()
             return None
-
+        time.sleep(0.5)
         total_area = data.get("property_details", {}).get("საერთო ფართი", "")
         if total_area:
             total_area_locator = (By.NAME, "totalArea")
@@ -203,7 +226,7 @@ def run_uploader(username, password, phone_number, ad_id, enter_description=True
         if stop_event and stop_event.is_set():
             driver.quit()
             return None
-
+        time.sleep(0.5)
         floor = data.get("property_details", {}).get("სართული", "")
         if floor:
             floor_locator = (By.NAME, "floor")
@@ -214,7 +237,7 @@ def run_uploader(username, password, phone_number, ad_id, enter_description=True
         if stop_event and stop_event.is_set():
             driver.quit()
             return None
-
+        time.sleep(0.5)
         floors = data.get("property_details", {}).get("სართულიანობა", "")
         if floors:
             floors_locator = (By.NAME, "floors")
@@ -225,7 +248,7 @@ def run_uploader(username, password, phone_number, ad_id, enter_description=True
         if stop_event and stop_event.is_set():
             driver.quit()
             return None
-
+        time.sleep(0.5)
         bathroom_count = data.get("additional_info", {}).get("სველი წერტილი", "")
         if bathroom_count:
             try:
@@ -248,7 +271,7 @@ def run_uploader(username, password, phone_number, ad_id, enter_description=True
         if stop_event and stop_event.is_set():
             driver.quit()
             return None
-
+        time.sleep(0.5)
         status = data.get("additional_info", {}).get("სტატუსი", "")
         if status:
             status_locator = (By.XPATH, f"//div[@class='sc-226b651b-0 kgzsHg']/p[text()='{status}']")
@@ -259,7 +282,7 @@ def run_uploader(username, password, phone_number, ad_id, enter_description=True
         if stop_event and stop_event.is_set():
             driver.quit()
             return None
-
+        time.sleep(0.5)
         condition = data.get("additional_info", {}).get("მდგომარეობა", "")
         if condition:
             condition_locator = (By.XPATH, f"//div[@class='sc-226b651b-0 kgzsHg']/p[text()='{condition}']")
@@ -270,7 +293,7 @@ def run_uploader(username, password, phone_number, ad_id, enter_description=True
         if stop_event and stop_event.is_set():
             driver.quit()
             return None
-
+        time.sleep(0.5)
         features = data.get("features", {})
         if features:
             feature_divs = driver.find_elements(By.XPATH, "//div[@class='sc-226b651b-0 sc-226b651b-1 kgzsHg LZoqF']")
@@ -288,7 +311,7 @@ def run_uploader(username, password, phone_number, ad_id, enter_description=True
         if stop_event and stop_event.is_set():
             driver.quit()
             return None
-
+        time.sleep(0.5)
         if enter_description:
             description = data.get("description", "")
             if description:
@@ -300,7 +323,7 @@ def run_uploader(username, password, phone_number, ad_id, enter_description=True
         if stop_event and stop_event.is_set():
             driver.quit()
             return None
-
+        time.sleep(0.5)
         agency_price = data.get("agency_price", "")
         if agency_price:
             try:
@@ -323,7 +346,7 @@ def run_uploader(username, password, phone_number, ad_id, enter_description=True
         if stop_event and stop_event.is_set():
             driver.quit()
             return None
-
+        time.sleep(0.5)
         if phone_number:
             phone_number_locator = (By.CSS_SELECTOR, "input[placeholder='მობილურის ნომერი']")
             if not send_keys_to_element(driver, phone_number_locator, phone_number, stop_event=stop_event):
@@ -333,7 +356,7 @@ def run_uploader(username, password, phone_number, ad_id, enter_description=True
         if stop_event and stop_event.is_set():
             driver.quit()
             return None
-
+        time.sleep(0.5)
         continue_button_locator = (By.CSS_SELECTOR, "button.sc-1c794266-1.dICGws.btn-next")
         if not click_element(driver, continue_button_locator, stop_event=stop_event):
             driver.quit()
@@ -342,7 +365,7 @@ def run_uploader(username, password, phone_number, ad_id, enter_description=True
         if stop_event and stop_event.is_set():
             driver.quit()
             return None
-
+        time.sleep(0.5)
         final_element_locator = (By.CSS_SELECTOR, "#__next > div.sc-af3cf45-0.fWBmkz > div.sc-af3cf45-6.ijmwBP > button.sc-1c794266-1.hBiInR")
         
         def wait_for_final_element_and_click():

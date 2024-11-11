@@ -1,95 +1,20 @@
-2024-11-09 23:20:49,535 - INFO - ====== WebDriver manager ======
-2024-11-09 23:20:50,142 - INFO - Get LATEST chromedriver version for google-chrome
-2024-11-09 23:20:50,392 - INFO - Get LATEST chromedriver version for google-chrome
-2024-11-09 23:20:50,658 - INFO - Driver [C:\Users\georg\.wdm\drivers\chromedriver\win64\130.0.6723.116\chromedriver-win32/chromedriver.exe] found in cache
-2024-11-09 23:21:10,967 - INFO - ====== WebDriver manager ======
-2024-11-09 23:21:11,590 - INFO - Get LATEST chromedriver version for google-chrome
-2024-11-09 23:21:11,841 - INFO - Get LATEST chromedriver version for google-chrome
-2024-11-09 23:21:12,104 - INFO - Driver [C:\Users\georg\.wdm\drivers\chromedriver\win64\130.0.6723.116\chromedriver-win32/chromedriver.exe] found in cache
-2024-11-09 23:21:44,534 - INFO - ====== WebDriver manager ======
-2024-11-09 23:21:45,162 - INFO - Get LATEST chromedriver version for google-chrome
-2024-11-09 23:21:45,420 - INFO - Get LATEST chromedriver version for google-chrome
-2024-11-09 23:21:45,668 - INFO - Driver [C:\Users\georg\.wdm\drivers\chromedriver\win64\130.0.6723.116\chromedriver-win32/chromedriver.exe] found in cache
-2024-11-09 23:22:09,694 - INFO - ====== WebDriver manager ======
-2024-11-09 23:22:10,284 - INFO - Get LATEST chromedriver version for google-chrome
-2024-11-09 23:22:10,555 - INFO - Get LATEST chromedriver version for google-chrome
-2024-11-09 23:22:10,810 - INFO - Driver [C:\Users\georg\.wdm\drivers\chromedriver\win64\130.0.6723.116\chromedriver-win32/chromedriver.exe] found in cache
-2024-11-09 23:22:25,882 - INFO - Starting uploader for ad_id: 30528650
-2024-11-09 23:22:25,883 - INFO - Loaded data from JSON file.
-2024-11-09 23:22:25,883 - INFO - ====== WebDriver manager ======
-2024-11-09 23:22:26,482 - INFO - Get LATEST chromedriver version for google-chrome
-2024-11-09 23:22:26,768 - INFO - Get LATEST chromedriver version for google-chrome
-2024-11-09 23:22:27,018 - INFO - Driver [C:\Users\georg\.wdm\drivers\chromedriver\win64\130.0.6723.116\chromedriver-win32/chromedriver.exe] found in cache
-2024-11-09 23:22:28,059 - INFO - Chrome WebDriver initialized.
-2024-11-09 23:22:29,408 - INFO - Opened the website.
-2024-11-09 23:22:29,408 - INFO - Attempting to click the login button.
-2024-11-09 23:22:29,491 - INFO - Clicked the login button.
-2024-11-09 23:22:29,491 - INFO - Entering username.
-2024-11-09 23:22:29,614 - INFO - Entered username.
-2024-11-09 23:22:29,614 - INFO - Entering password.
-2024-11-09 23:22:29,755 - INFO - Entered password.
-2024-11-09 23:22:29,755 - INFO - Clicking the submit button.
-2024-11-09 23:22:29,810 - INFO - Clicked the submit button.
-2024-11-09 23:22:29,810 - INFO - Selecting property type: \u10d1\u10d8\u10dc\u10d0
-2024-11-09 23:22:31,584 - WARNING - StaleElementReferenceException encountered when clicking ('xpath', "//div[text()='\u10d1\u10d8\u10dc\u10d0']"). Retrying...
-2024-11-09 23:22:33,630 - ERROR - Exception when clicking element ('xpath', "//div[text()='\u10d1\u10d8\u10dc\u10d0']"): Message: element click intercepted: Element <div class="sc-f90a41ca-3 gOmehI">...</div> is not clickable at point (748, 541). Other element would receive the click: <button tabindex="1" class="sc-1c794266-1 eqszNP">...</button>
-  (Session info: chrome=130.0.6723.117)
-Stacktrace:
-	GetHandleVerifier [0x004AEBD3+24307]
-	(No symbol) [0x00438D74]
-	(No symbol) [0x0031C323]
-	(No symbol) [0x00363B07]
-	(No symbol) [0x00361F79]
-	(No symbol) [0x0035FE64]
-	(No symbol) [0x0035F45E]
-	(No symbol) [0x0035415D]
-	(No symbol) [0x0037FE8C]
-	(No symbol) [0x00353C14]
-	(No symbol) [0x00380124]
-	(No symbol) [0x00399579]
-	(No symbol) [0x0037FC26]
-	(No symbol) [0x0035219C]
-	(No symbol) [0x0035311D]
-	GetHandleVerifier [0x00758D93+2818227]
-	GetHandleVerifier [0x007B542E+3196750]
-	GetHandleVerifier [0x007AD9D2+3165426]
-	GetHandleVerifier [0x0054DA70+675216]
-	(No symbol) [0x00441B3D]
-	(No symbol) [0x0043EA18]
-	(No symbol) [0x0043EBB5]
-	(No symbol) [0x00431640]
-	BaseThreadInitThunk [0x75F87BA9+25]
-	RtlInitializeExceptionChain [0x77A7C0CB+107]
-	RtlClearBits [0x77A7C04F+191]
-
-2024-11-09 23:22:33,631 - ERROR - An error occurred during uploading: Message: element click intercepted: Element <div class="sc-f90a41ca-3 gOmehI">...</div> is not clickable at point (748, 541). Other element would receive the click: <button tabindex="1" class="sc-1c794266-1 eqszNP">...</button>
-  (Session info: chrome=130.0.6723.117)
-Stacktrace:
-	GetHandleVerifier [0x004AEBD3+24307]
-	(No symbol) [0x00438D74]
-	(No symbol) [0x0031C323]
-	(No symbol) [0x00363B07]
-	(No symbol) [0x00361F79]
-	(No symbol) [0x0035FE64]
-	(No symbol) [0x0035F45E]
-	(No symbol) [0x0035415D]
-	(No symbol) [0x0037FE8C]
-	(No symbol) [0x00353C14]
-	(No symbol) [0x00380124]
-	(No symbol) [0x00399579]
-	(No symbol) [0x0037FC26]
-	(No symbol) [0x0035219C]
-	(No symbol) [0x0035311D]
-	GetHandleVerifier [0x00758D93+2818227]
-	GetHandleVerifier [0x007B542E+3196750]
-	GetHandleVerifier [0x007AD9D2+3165426]
-	GetHandleVerifier [0x0054DA70+675216]
-	(No symbol) [0x00441B3D]
-	(No symbol) [0x0043EA18]
-	(No symbol) [0x0043EBB5]
-	(No symbol) [0x00431640]
-	BaseThreadInitThunk [0x75F87BA9+25]
-	RtlInitializeExceptionChain [0x77A7C0CB+107]
-	RtlClearBits [0x77A7C04F+191]
-
-2024-11-09 23:22:35,794 - INFO - Browser closed.
+2024-11-11 13:46:01,379:INFO:Configuration saved successfully.
+2024-11-11 13:46:01,381:INFO:Data folder created.
+2024-11-11 13:46:01,411:INFO:Excel file created with proper columns.
+2024-11-11 13:46:21,231:INFO:Running scraper with data directory: D:\Projects\scrape_upload_app\data
+2024-11-11 13:46:21,233:INFO:====== WebDriver manager ======
+2024-11-11 13:46:21,847:INFO:Get LATEST chromedriver version for google-chrome
+2024-11-11 13:46:22,122:INFO:Get LATEST chromedriver version for google-chrome
+2024-11-11 13:46:22,364:INFO:Driver [C:\Users\georg\.wdm\drivers\chromedriver\win64\130.0.6723.116\chromedriver-win32/chromedriver.exe] found in cache
+2024-11-11 13:46:36,824:INFO:Scraper returned Ad ID: 30598523
+2024-11-11 13:46:36,825:INFO:Looking for JSON file at: D:\Projects\scrape_upload_app\data\30598523\30598523.json
+2024-11-11 13:46:36,832:INFO:Scraped data loaded successfully.
+2024-11-11 13:46:36,891:INFO:Data appended to Excel for Ad ID: 30598523
+2024-11-11 13:46:36,891:INFO:Uploader looking for JSON file at: D:\Projects\scrape_upload_app\data\30598523\30598523.json
+2024-11-11 13:46:36,891:INFO:JSON data loaded successfully.
+2024-11-11 13:46:36,891:INFO:====== WebDriver manager ======
+2024-11-11 13:46:37,486:INFO:Get LATEST chromedriver version for google-chrome
+2024-11-11 13:46:37,771:INFO:Get LATEST chromedriver version for google-chrome
+2024-11-11 13:46:38,067:INFO:Driver [C:\Users\georg\.wdm\drivers\chromedriver\win64\130.0.6723.116\chromedriver-win32/chromedriver.exe] found in cache
+2024-11-11 13:47:14,181:INFO:Uploader returned Final URL: https://home.ss.ge/ka/udzravi-qoneba/30603775
+2024-11-11 13:47:14,202:INFO:Final URL updated in Excel for Ad ID: 30598523
