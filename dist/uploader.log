@@ -1,0 +1,32 @@
+2025-01-06 19:30:48,365:INFO:Configuration saved successfully.
+2025-01-06 19:30:48,376:INFO:Data folder created.
+2025-01-06 19:30:48,421:INFO:Excel file created with proper columns.
+2025-01-06 19:31:06,069:INFO:Running scraper with data directory: D:\Projects\scrape_upload_app\dist\data
+2025-01-06 19:31:06,071:INFO:====== WebDriver manager ======
+2025-01-06 19:31:07,195:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-06 19:31:07,480:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-06 19:31:07,731:INFO:There is no [win64] chromedriver "131.0.6778.204" for browser google-chrome "131.0.6778" in cache
+2025-01-06 19:31:07,731:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-06 19:31:08,300:INFO:WebDriver version 131.0.6778.204 selected
+2025-01-06 19:31:08,302:INFO:Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/131.0.6778.204/win32/chromedriver-win32.zip
+2025-01-06 19:31:08,302:INFO:About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/131.0.6778.204/win32/chromedriver-win32.zip
+2025-01-06 19:31:08,628:INFO:Driver downloading response is 200
+2025-01-06 19:31:09,584:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-06 19:31:09,934:INFO:Driver has been saved in cache [C:\Users\georg\.wdm\drivers\chromedriver\win64\131.0.6778.204]
+2025-01-06 19:31:34,136:WARNING:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001B135D32310>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/48b396d9b84e47c94e84ceaaad1bb85b
+2025-01-06 19:31:38,204:WARNING:Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001B1349465D0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/48b396d9b84e47c94e84ceaaad1bb85b
+2025-01-06 19:31:42,262:WARNING:Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001B1349461D0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/48b396d9b84e47c94e84ceaaad1bb85b
+2025-01-06 19:31:43,380:INFO:Stop event triggered.
+2025-01-06 19:31:44,636:INFO:Stop event triggered.
+2025-01-06 19:31:44,804:INFO:Stop event triggered.
+2025-01-06 19:31:44,980:INFO:Stop event triggered.
+2025-01-06 19:31:50,317:INFO:Scraper returned Ad ID: None
+2025-01-06 19:31:59,133:INFO:Running scraper with data directory: D:\Projects\scrape_upload_app\dist\data
+2025-01-06 19:31:59,136:INFO:====== WebDriver manager ======
+2025-01-06 19:32:00,034:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-06 19:32:04,332:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-06 19:32:04,577:INFO:Driver [C:\Users\georg\.wdm\drivers\chromedriver\win64\131.0.6778.204\chromedriver-win32/chromedriver.exe] found in cache
+2025-01-06 19:32:26,780:WARNING:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001B131A05290>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/bf49848b0d11af6e6a4d782a901b004b
+2025-01-06 19:32:30,831:WARNING:Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001B131A05250>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/bf49848b0d11af6e6a4d782a901b004b
+2025-01-06 19:32:34,889:WARNING:Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001B13494DDD0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/bf49848b0d11af6e6a4d782a901b004b
+2025-01-06 19:32:42,998:INFO:Scraper returned Ad ID: None

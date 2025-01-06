@@ -64,7 +64,7 @@ def extract_breadcrumbs(driver, stop_event=None):
     try:
         if stop_event and stop_event.is_set():
             return breadcrumbs_data
-        breadcrumb_container = driver.find_element(By.CLASS_NAME, "sc-3e6bc6bd-20.emoNi")
+        breadcrumb_container = driver.find_element(By.CLASS_NAME, "sc-edcd5edf-20.hLHWIj")
         breadcrumb_links = breadcrumb_container.find_elements(By.TAG_NAME, "a")
         if len(breadcrumb_links) >= 3:
             breadcrumbs_data["category"] = breadcrumb_links[0].text
@@ -85,7 +85,11 @@ def extract_features_info(driver, stop_event=None):
             if stop_event and stop_event.is_set():
                 break
             title = element.find_element(By.TAG_NAME, "h3").text if element.find_elements(By.TAG_NAME, "h3") else 'N/A'
-            value = "არა" if "cWzNVx" in element.get_attribute('class') else "კი"
+            disabled = element.get_attribute("disabled")
+            if disabled is None:
+                value = "კი"
+            else: value = 'არა'
+            #value = "არა" if "cWzNVx" in element.get_attribute('class') else "კი"
             features_info[title] = value
     except Exception:
         pass
@@ -145,7 +149,7 @@ def run_scraper(url, agency_price, comment="", headless=False, stop_event=None, 
         ad_id = None
         def get_ad_id():
             nonlocal ad_id
-            id_elements = driver.find_elements(By.XPATH, "//div[contains(@class, 'sc-3e6bc6bd-19')]/div/span[contains(text(), 'ID -')]")
+            id_elements = driver.find_elements(By.XPATH, "//div[contains(@class, 'sc-edcd5edf-19')]/div/span[contains(text(), 'ID -')]")
             if id_elements:
                 ad_id = id_elements[0].text.split("-")[-1].strip()
                 return True

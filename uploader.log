@@ -18,3 +18,24 @@
 2024-11-11 13:46:38,067:INFO:Driver [C:\Users\georg\.wdm\drivers\chromedriver\win64\130.0.6723.116\chromedriver-win32/chromedriver.exe] found in cache
 2024-11-11 13:47:14,181:INFO:Uploader returned Final URL: https://home.ss.ge/ka/udzravi-qoneba/30603775
 2024-11-11 13:47:14,202:INFO:Final URL updated in Excel for Ad ID: 30598523
+2025-01-06 21:34:36,480:INFO:Configuration loaded successfully.
+2025-01-06 21:35:12,013:INFO:Configuration loaded successfully.
+2025-01-06 21:35:47,079:INFO:Configuration loaded successfully.
+2025-01-06 21:36:02,126:INFO:Running scraper with data directory: D:\Projects\scrape_upload_app\data
+2025-01-06 21:36:02,126:INFO:====== WebDriver manager ======
+2025-01-06 21:36:02,785:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-06 21:36:03,092:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-06 21:36:03,409:INFO:Driver [C:\Users\georg\.wdm\drivers\chromedriver\win64\131.0.6778.204\chromedriver-win32/chromedriver.exe] found in cache
+2025-01-06 21:36:16,979:INFO:Scraper returned Ad ID: 31024583
+2025-01-06 21:36:16,979:INFO:Looking for JSON file at: D:\Projects\scrape_upload_app\data\31024583\31024583.json
+2025-01-06 21:36:16,995:INFO:Scraped data loaded successfully.
+2025-01-06 21:36:17,089:INFO:Data appended to Excel for Ad ID: 31024583
+2025-01-06 21:55:08,270:INFO:Looking for JSON file at: D:\Projects\scrape_upload_app\data\31024583\31024583.json
+2025-01-06 21:55:08,271:INFO:Scraped data loaded successfully.
+2025-01-06 21:55:08,271:INFO:Uploader looking for JSON file at: D:\Projects\scrape_upload_app\data\31024583\31024583.json
+2025-01-06 21:55:08,272:INFO:JSON data loaded successfully.
+2025-01-06 21:55:08,272:INFO:====== WebDriver manager ======
+2025-01-06 21:55:08,833:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-06 21:55:09,099:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-06 21:55:09,353:INFO:Driver [C:\Users\georg\.wdm\drivers\chromedriver\win64\131.0.6778.204\chromedriver-win32/chromedriver.exe] found in cache
+2025-01-07 00:52:43,937:INFO:Configuration loaded successfully.
