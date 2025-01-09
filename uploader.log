@@ -39,3 +39,568 @@
 2025-01-06 21:55:09,099:INFO:Get LATEST chromedriver version for google-chrome
 2025-01-06 21:55:09,353:INFO:Driver [C:\Users\georg\.wdm\drivers\chromedriver\win64\131.0.6778.204\chromedriver-win32/chromedriver.exe] found in cache
 2025-01-07 00:52:43,937:INFO:Configuration loaded successfully.
+2025-01-08 16:38:39,191:INFO:Configuration loaded successfully.
+2025-01-08 16:39:11,667:INFO:Running scraper with data directory: D:\Projects\scrape_upload_app\data
+2025-01-08 16:39:11,668:INFO:====== WebDriver manager ======
+2025-01-08 16:39:12,576:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 16:39:12,879:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 16:39:13,127:INFO:Driver [C:\Users\georg\.wdm\drivers\chromedriver\win64\131.0.6778.264\chromedriver-win32/chromedriver.exe] found in cache
+2025-01-08 16:39:36,425:WARNING:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002CC8534DD90>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/282e44bed6f1d7933541248bc49aac0a
+2025-01-08 16:39:40,472:WARNING:Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002CC85333F10>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/282e44bed6f1d7933541248bc49aac0a
+2025-01-08 16:39:44,499:WARNING:Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002CC85332750>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/282e44bed6f1d7933541248bc49aac0a
+2025-01-08 16:39:52,615:INFO:Scraper returned Ad ID: None
+2025-01-08 17:53:28,865:INFO:Configuration loaded successfully.
+2025-01-08 17:53:50,483:INFO:Running scraper with data directory: D:\Projects\scrape_upload_app\data
+2025-01-08 17:53:50,485:INFO:====== WebDriver manager ======
+2025-01-08 17:53:52,385:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 17:53:52,748:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 17:53:53,027:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 17:53:53,592:INFO:WebDriver version 131.0.6778.264 selected
+2025-01-08 17:53:53,594:INFO:Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/131.0.6778.264/win32/chromedriver-win32.zip
+2025-01-08 17:53:53,594:INFO:About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/131.0.6778.264/win32/chromedriver-win32.zip
+2025-01-08 17:53:53,926:INFO:Driver downloading response is 200
+2025-01-08 17:53:54,956:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 17:53:55,474:INFO:Driver has been saved in cache [C:\Users\georg\.wdm\drivers\chromedriver\win64\131.0.6778.264]
+2025-01-08 17:54:18,446:WARNING:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002B192D683D0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/cd9d84fd332c2c933033569ef53e36a1
+2025-01-08 17:54:22,485:WARNING:Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002B192D6ADD0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/cd9d84fd332c2c933033569ef53e36a1
+2025-01-08 17:54:26,541:WARNING:Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002B192D6AE90>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/cd9d84fd332c2c933033569ef53e36a1
+2025-01-08 17:54:34,606:INFO:Scraper returned Ad ID: None
+2025-01-08 18:05:22,320:INFO:Configuration loaded successfully.
+2025-01-08 18:06:00,235:INFO:Running scraper with data directory: D:\Projects\scrape_upload_app\data
+2025-01-08 18:06:00,238:INFO:====== WebDriver manager ======
+2025-01-08 18:06:00,943:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 18:06:01,240:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 18:06:01,513:INFO:Driver [C:\Users\georg\.wdm\drivers\chromedriver\win64\131.0.6778.264\chromedriver-win32/chromedriver.exe] found in cache
+2025-01-08 18:06:24,688:WARNING:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000029BC2ECD410>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/10b6170596919843976e0bcd38c1a7ad
+2025-01-08 18:06:28,757:WARNING:Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000029BC2ECF450>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/10b6170596919843976e0bcd38c1a7ad
+2025-01-08 18:06:32,843:WARNING:Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000029BC2ECE3D0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/10b6170596919843976e0bcd38c1a7ad
+2025-01-08 18:06:41,003:INFO:Scraper returned Ad ID: None
+2025-01-08 18:11:28,623:INFO:Running scraper with data directory: D:\Projects\scrape_upload_app\data
+2025-01-08 18:11:28,644:INFO:====== WebDriver manager ======
+2025-01-08 18:11:29,470:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 18:11:33,878:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 18:11:34,140:INFO:Driver [C:\Users\georg\.wdm\drivers\chromedriver\win64\131.0.6778.264\chromedriver-win32/chromedriver.exe] found in cache
+2025-01-08 18:11:48,224:INFO:Scraper returned Ad ID: 6314087
+2025-01-08 18:11:48,224:INFO:Looking for JSON file at: D:\Projects\scrape_upload_app\data\6314087\6314087.json
+2025-01-08 18:11:48,240:INFO:Scraped data loaded successfully.
+2025-01-08 18:11:48,599:INFO:Data appended to Excel for Ad ID: 6314087
+2025-01-08 18:11:48,599:INFO:Uploader looking for JSON file at: D:\Projects\scrape_upload_app\data\6314087\6314087.json
+2025-01-08 18:11:48,599:INFO:JSON data loaded successfully.
+2025-01-08 18:11:48,599:INFO:====== WebDriver manager ======
+2025-01-08 18:11:49,287:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 18:11:49,554:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 18:11:49,839:INFO:Driver [C:\Users\georg\.wdm\drivers\chromedriver\win64\131.0.6778.264\chromedriver-win32/chromedriver.exe] found in cache
+2025-01-08 18:23:01,364:INFO:Configuration loaded successfully.
+2025-01-08 18:23:23,803:INFO:Running scraper with data directory: D:\Projects\scrape_upload_app\data
+2025-01-08 18:23:23,805:INFO:====== WebDriver manager ======
+2025-01-08 18:23:24,559:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 18:23:24,872:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 18:23:25,113:INFO:Driver [C:\Users\georg\.wdm\drivers\chromedriver\win64\131.0.6778.264\chromedriver-win32/chromedriver.exe] found in cache
+2025-01-08 18:23:38,903:INFO:Scraper returned Ad ID: 31023525
+2025-01-08 18:23:38,903:INFO:Looking for JSON file at: D:\Projects\scrape_upload_app\data\31023525\31023525.json
+2025-01-08 18:23:38,917:INFO:Scraped data loaded successfully.
+2025-01-08 18:23:39,034:INFO:Data appended to Excel for Ad ID: 31023525
+2025-01-08 18:23:39,034:INFO:Uploader looking for JSON file at: D:\Projects\scrape_upload_app\data\31023525\31023525.json
+2025-01-08 18:23:39,035:INFO:JSON data loaded successfully.
+2025-01-08 18:23:39,035:INFO:====== WebDriver manager ======
+2025-01-08 18:23:39,701:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 18:23:39,941:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 18:23:40,188:INFO:Driver [C:\Users\georg\.wdm\drivers\chromedriver\win64\131.0.6778.264\chromedriver-win32/chromedriver.exe] found in cache
+2025-01-08 18:24:01,804:WARNING:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001EA7EBF6650>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/a54b9ca48b47511c94ab307f4ac684c5
+2025-01-08 19:23:40,308:INFO:Configuration loaded successfully.
+2025-01-08 19:36:34,698:INFO:Configuration loaded successfully.
+2025-01-08 19:37:09,334:INFO:Configuration file deleted.
+2025-01-08 19:37:22,687:INFO:Configuration saved successfully.
+2025-01-08 19:38:42,357:INFO:Configuration loaded successfully.
+2025-01-08 19:38:58,706:INFO:Running scraper with data directory: D:\Projects\scrape_upload_app\data
+2025-01-08 19:38:58,721:INFO:====== WebDriver manager ======
+2025-01-08 19:38:59,736:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 19:39:00,057:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 19:39:00,302:INFO:Driver [C:\Users\georg\.wdm\drivers\chromedriver\win64\131.0.6778.264\chromedriver-win32/chromedriver.exe] found in cache
+2025-01-08 19:39:13,977:INFO:Scraper returned Ad ID: 31023525
+2025-01-08 19:39:13,977:INFO:Looking for JSON file at: D:\Projects\scrape_upload_app\data\31023525\31023525.json
+2025-01-08 19:39:13,977:INFO:Scraped data loaded successfully.
+2025-01-08 19:39:14,103:INFO:Data appended to Excel for Ad ID: 31023525
+2025-01-08 19:39:14,103:INFO:Uploader looking for JSON file at: D:\Projects\scrape_upload_app\data\31023525\31023525.json
+2025-01-08 19:39:14,103:INFO:JSON data loaded successfully.
+2025-01-08 19:39:14,103:INFO:====== WebDriver manager ======
+2025-01-08 19:39:14,780:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 19:39:15,067:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 19:39:15,313:INFO:Driver [C:\Users\georg\.wdm\drivers\chromedriver\win64\131.0.6778.264\chromedriver-win32/chromedriver.exe] found in cache
+2025-01-08 19:40:16,420:WARNING:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002423373F090>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/935cca3c8b4d644a3584a2784bcdce09
+2025-01-08 19:40:20,475:WARNING:Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000242354C0810>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/935cca3c8b4d644a3584a2784bcdce09
+2025-01-08 19:40:24,518:WARNING:Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000242354C0BD0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/935cca3c8b4d644a3584a2784bcdce09
+2025-01-08 19:40:32,674:INFO:Uploader returned Final URL: None
+2025-01-08 19:42:16,290:INFO:Looking for JSON file at: D:\Projects\scrape_upload_app\data\31023525\31023525.json
+2025-01-08 19:42:16,290:INFO:Scraped data loaded successfully.
+2025-01-08 19:42:16,309:INFO:Uploader looking for JSON file at: D:\Projects\scrape_upload_app\data\31023525\31023525.json
+2025-01-08 19:42:16,309:INFO:JSON data loaded successfully.
+2025-01-08 19:42:16,324:INFO:====== WebDriver manager ======
+2025-01-08 19:42:17,059:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 19:42:21,409:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 19:42:21,675:INFO:Driver [C:\Users\georg\.wdm\drivers\chromedriver\win64\131.0.6778.264\chromedriver-win32/chromedriver.exe] found in cache
+2025-01-08 19:42:45,937:WARNING:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000024233771D10>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/a15a7dde78c145aa7ab18a143279e208
+2025-01-08 19:42:49,995:WARNING:Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000024233773710>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/a15a7dde78c145aa7ab18a143279e208
+2025-01-08 19:42:54,056:WARNING:Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000002423373D350>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/a15a7dde78c145aa7ab18a143279e208
+2025-01-08 19:43:02,146:INFO:Uploader returned Final URL: None
+2025-01-08 19:43:51,316:INFO:Configuration loaded successfully.
+2025-01-08 19:49:56,333:INFO:Configuration loaded successfully.
+2025-01-08 19:53:11,375:INFO:Configuration loaded successfully.
+2025-01-08 19:54:08,501:INFO:Configuration loaded successfully.
+2025-01-08 19:54:18,421:INFO:Running scraper with data directory: D:\Projects\scrape_upload_app\data
+2025-01-08 19:54:18,421:INFO:====== WebDriver manager ======
+2025-01-08 19:54:19,218:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 19:54:19,493:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 19:54:19,745:INFO:Driver [C:\Users\georg\.wdm\drivers\chromedriver\win64\131.0.6778.264\chromedriver-win32/chromedriver.exe] found in cache
+2025-01-08 19:54:33,159:INFO:Scraper returned Ad ID: 31023525
+2025-01-08 19:54:33,311:INFO:Data appended to Excel for Ad ID: 31023525
+2025-01-08 19:54:33,311:INFO:Uploader looking for JSON file at: D:\Projects\scrape_upload_app\data\31023525\31023525.json
+2025-01-08 19:54:33,312:INFO:JSON data loaded successfully.
+2025-01-08 19:54:33,312:INFO:====== WebDriver manager ======
+2025-01-08 19:54:33,967:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 19:54:34,223:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 19:54:34,469:INFO:Driver [C:\Users\georg\.wdm\drivers\chromedriver\win64\131.0.6778.264\chromedriver-win32/chromedriver.exe] found in cache
+2025-01-08 19:55:04,487:INFO:Stop event triggered.
+2025-01-08 19:55:08,847:WARNING:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001AA25DD5210>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/2382cdccf5a472ec196a7eaebf92d3a0
+2025-01-08 19:55:56,087:INFO:Configuration loaded successfully.
+2025-01-08 19:56:16,591:INFO:Running scraper with data directory: D:\Projects\scrape_upload_app\data
+2025-01-08 19:56:16,591:INFO:====== WebDriver manager ======
+2025-01-08 19:56:17,268:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 19:56:17,554:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 19:56:17,793:INFO:Driver [C:\Users\georg\.wdm\drivers\chromedriver\win64\131.0.6778.264\chromedriver-win32/chromedriver.exe] found in cache
+2025-01-08 19:56:23,437:INFO:Stop event triggered.
+2025-01-08 19:56:28,580:INFO:Stop event triggered.
+2025-01-08 19:56:28,741:INFO:Stop event triggered.
+2025-01-08 19:56:28,877:INFO:Stop event triggered.
+2025-01-08 19:56:29,560:WARNING:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000026C223092D0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/aede78dfa015e1755402578b15831351
+2025-01-08 19:56:33,616:WARNING:Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000026C22309E90>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/aede78dfa015e1755402578b15831351
+2025-01-08 19:56:37,785:INFO:Configuration loaded successfully.
+2025-01-08 19:56:54,136:INFO:Uploader looking for JSON file at: D:\Projects\scrape_upload_app\data\31023525\31023525.json
+2025-01-08 19:56:54,137:INFO:JSON data loaded successfully.
+2025-01-08 19:56:54,137:INFO:====== WebDriver manager ======
+2025-01-08 19:56:54,825:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 19:56:55,566:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 19:56:55,828:INFO:Driver [C:\Users\georg\.wdm\drivers\chromedriver\win64\131.0.6778.264\chromedriver-win32/chromedriver.exe] found in cache
+2025-01-08 19:57:30,751:WARNING:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000029065474050>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/6b35c9a38698f5fecb013c2834eab215
+2025-01-08 19:57:34,806:WARNING:Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000290654746D0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/6b35c9a38698f5fecb013c2834eab215
+2025-01-08 19:57:38,849:WARNING:Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000029065474D10>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/6b35c9a38698f5fecb013c2834eab215
+2025-01-08 19:57:46,978:INFO:Uploader returned Final URL: None
+2025-01-08 20:05:40,231:INFO:Configuration loaded successfully.
+2025-01-08 20:05:57,055:INFO:Running scraper with data directory: D:\Projects\scrape_upload_app\data
+2025-01-08 20:05:57,057:INFO:====== WebDriver manager ======
+2025-01-08 20:05:57,779:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 20:05:58,058:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 20:05:58,307:INFO:Driver [C:\Users\georg\.wdm\drivers\chromedriver\win64\131.0.6778.264\chromedriver-win32/chromedriver.exe] found in cache
+2025-01-08 20:06:10,397:INFO:Scraper returned Ad ID: 31033589
+2025-01-08 20:06:10,397:INFO:Looking for JSON file at: D:\Projects\scrape_upload_app\data\31033589\31033589.json
+2025-01-08 20:06:10,416:INFO:Scraped data loaded successfully.
+2025-01-08 20:06:10,515:INFO:Data appended to Excel for Ad ID: 31033589
+2025-01-08 20:06:10,515:INFO:Uploader looking for JSON file at: D:\Projects\scrape_upload_app\data\31033589\31033589.json
+2025-01-08 20:06:10,515:INFO:JSON data loaded successfully.
+2025-01-08 20:06:10,515:INFO:====== WebDriver manager ======
+2025-01-08 20:06:11,210:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 20:06:11,465:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 20:06:11,712:INFO:Driver [C:\Users\georg\.wdm\drivers\chromedriver\win64\131.0.6778.264\chromedriver-win32/chromedriver.exe] found in cache
+2025-01-08 20:06:49,508:WARNING:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000180FD039810>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/7e6754e3182db7ef8dd7a3389d3ae4c4
+2025-01-08 20:06:53,537:WARNING:Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000180FD03BE10>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/7e6754e3182db7ef8dd7a3389d3ae4c4
+2025-01-08 20:06:57,569:WARNING:Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000180FD03AD50>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/7e6754e3182db7ef8dd7a3389d3ae4c4
+2025-01-08 20:09:25,015:INFO:Configuration loaded successfully.
+2025-01-08 20:09:38,861:INFO:Looking for JSON file at: D:\Projects\scrape_upload_app\data\31033589\31033589.json
+2025-01-08 20:09:38,861:INFO:Scraped data loaded successfully.
+2025-01-08 20:09:38,861:INFO:Uploader looking for JSON file at: D:\Projects\scrape_upload_app\data\31033589\31033589.json
+2025-01-08 20:09:38,861:INFO:JSON data loaded successfully.
+2025-01-08 20:09:38,861:INFO:====== WebDriver manager ======
+2025-01-08 20:09:39,545:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 20:09:39,809:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 20:09:40,056:INFO:Driver [C:\Users\georg\.wdm\drivers\chromedriver\win64\131.0.6778.264\chromedriver-win32/chromedriver.exe] found in cache
+2025-01-08 20:10:17,742:WARNING:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000293CB6D2B50>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/609e15d6a1396fd29a0552f94edfed37
+2025-01-08 20:10:21,779:WARNING:Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000293CD438110>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/609e15d6a1396fd29a0552f94edfed37
+2025-01-08 20:10:25,835:WARNING:Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000293CD438750>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/609e15d6a1396fd29a0552f94edfed37
+2025-01-08 20:10:33,937:INFO:Uploader returned Final URL: None
+2025-01-08 20:16:53,831:INFO:Configuration loaded successfully.
+2025-01-08 20:16:58,814:INFO:Looking for JSON file at: D:\Projects\scrape_upload_app\data\31033589\31033589.json
+2025-01-08 20:16:58,814:INFO:Scraped data loaded successfully.
+2025-01-08 20:16:58,814:INFO:Uploader looking for JSON file at: D:\Projects\scrape_upload_app\data\31033589\31033589.json
+2025-01-08 20:16:58,814:INFO:JSON data loaded successfully.
+2025-01-08 20:16:58,814:INFO:====== WebDriver manager ======
+2025-01-08 20:16:59,568:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 20:16:59,851:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 20:17:00,103:INFO:Driver [C:\Users\georg\.wdm\drivers\chromedriver\win64\131.0.6778.264\chromedriver-win32/chromedriver.exe] found in cache
+2025-01-08 20:17:39,308:WARNING:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000207C29036D0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/0124a6bf43f8c97c4ec3f17339b79b59
+2025-01-08 20:17:43,370:WARNING:Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000207C3418250>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/0124a6bf43f8c97c4ec3f17339b79b59
+2025-01-08 20:17:47,419:WARNING:Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x00000207C3418890>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/0124a6bf43f8c97c4ec3f17339b79b59
+2025-01-08 20:17:55,525:INFO:Uploader returned Final URL: None
+2025-01-08 20:21:11,833:INFO:Configuration loaded successfully.
+2025-01-08 20:21:16,653:INFO:Looking for JSON file at: D:\Projects\scrape_upload_app\data\31033589\31033589.json
+2025-01-08 20:21:16,653:INFO:Scraped data loaded successfully.
+2025-01-08 20:21:16,653:INFO:Uploader looking for JSON file at: D:\Projects\scrape_upload_app\data\31033589\31033589.json
+2025-01-08 20:21:16,653:INFO:JSON data loaded successfully.
+2025-01-08 20:21:16,653:INFO:====== WebDriver manager ======
+2025-01-08 20:21:17,507:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 20:21:17,779:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 20:21:18,035:INFO:Driver [C:\Users\georg\.wdm\drivers\chromedriver\win64\131.0.6778.264\chromedriver-win32/chromedriver.exe] found in cache
+2025-01-08 20:21:25,212:WARNING:Could not upload image D:\Projects\scrape_upload_app\data\31033589\images\31033589_1.jpg: Message: no such element: Unable to locate element: {"method":"css selector","selector":"input[type='file']"}
+  (Session info: chrome=131.0.6778.265); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x00F5FD53+23747]
+	(No symbol) [0x00EE7D54]
+	(No symbol) [0x00DBBE53]
+	(No symbol) [0x00DFFCA6]
+	(No symbol) [0x00DFFEEB]
+	(No symbol) [0x00E3D852]
+	(No symbol) [0x00E21E44]
+	(No symbol) [0x00E3B41E]
+	(No symbol) [0x00E21B96]
+	(No symbol) [0x00DF3F3C]
+	(No symbol) [0x00DF4EBD]
+	GetHandleVerifier [0x0123AC73+3017699]
+	GetHandleVerifier [0x0124B93B+3086507]
+	GetHandleVerifier [0x012440F2+3055714]
+	GetHandleVerifier [0x00FF5AF0+637536]
+	(No symbol) [0x00EF0A5D]
+	(No symbol) [0x00EEDA28]
+	(No symbol) [0x00EEDBC5]
+	(No symbol) [0x00EE07F0]
+	BaseThreadInitThunk [0x76BF7BA9+25]
+	RtlInitializeExceptionChain [0x7731C0CB+107]
+	RtlClearBits [0x7731C04F+191]
+
+2025-01-08 20:21:25,221:WARNING:Could not upload image D:\Projects\scrape_upload_app\data\31033589\images\31033589_2.jpg: Message: no such element: Unable to locate element: {"method":"css selector","selector":"input[type='file']"}
+  (Session info: chrome=131.0.6778.265); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x00F5FD53+23747]
+	(No symbol) [0x00EE7D54]
+	(No symbol) [0x00DBBE53]
+	(No symbol) [0x00DFFCA6]
+	(No symbol) [0x00DFFEEB]
+	(No symbol) [0x00E3D852]
+	(No symbol) [0x00E21E44]
+	(No symbol) [0x00E3B41E]
+	(No symbol) [0x00E21B96]
+	(No symbol) [0x00DF3F3C]
+	(No symbol) [0x00DF4EBD]
+	GetHandleVerifier [0x0123AC73+3017699]
+	GetHandleVerifier [0x0124B93B+3086507]
+	GetHandleVerifier [0x012440F2+3055714]
+	GetHandleVerifier [0x00FF5AF0+637536]
+	(No symbol) [0x00EF0A5D]
+	(No symbol) [0x00EEDA28]
+	(No symbol) [0x00EEDBC5]
+	(No symbol) [0x00EE07F0]
+	BaseThreadInitThunk [0x76BF7BA9+25]
+	RtlInitializeExceptionChain [0x7731C0CB+107]
+	RtlClearBits [0x7731C04F+191]
+
+2025-01-08 20:21:25,229:WARNING:Could not upload image D:\Projects\scrape_upload_app\data\31033589\images\31033589_3.jpg: Message: no such element: Unable to locate element: {"method":"css selector","selector":"input[type='file']"}
+  (Session info: chrome=131.0.6778.265); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x00F5FD53+23747]
+	(No symbol) [0x00EE7D54]
+	(No symbol) [0x00DBBE53]
+	(No symbol) [0x00DFFCA6]
+	(No symbol) [0x00DFFEEB]
+	(No symbol) [0x00E3D852]
+	(No symbol) [0x00E21E44]
+	(No symbol) [0x00E3B41E]
+	(No symbol) [0x00E21B96]
+	(No symbol) [0x00DF3F3C]
+	(No symbol) [0x00DF4EBD]
+	GetHandleVerifier [0x0123AC73+3017699]
+	GetHandleVerifier [0x0124B93B+3086507]
+	GetHandleVerifier [0x012440F2+3055714]
+	GetHandleVerifier [0x00FF5AF0+637536]
+	(No symbol) [0x00EF0A5D]
+	(No symbol) [0x00EEDA28]
+	(No symbol) [0x00EEDBC5]
+	(No symbol) [0x00EE07F0]
+	BaseThreadInitThunk [0x76BF7BA9+25]
+	RtlInitializeExceptionChain [0x7731C0CB+107]
+	RtlClearBits [0x7731C04F+191]
+
+2025-01-08 20:21:25,232:WARNING:Could not upload image D:\Projects\scrape_upload_app\data\31033589\images\31033589_5.jpg: Message: no such element: Unable to locate element: {"method":"css selector","selector":"input[type='file']"}
+  (Session info: chrome=131.0.6778.265); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x00F5FD53+23747]
+	(No symbol) [0x00EE7D54]
+	(No symbol) [0x00DBBE53]
+	(No symbol) [0x00DFFCA6]
+	(No symbol) [0x00DFFEEB]
+	(No symbol) [0x00E3D852]
+	(No symbol) [0x00E21E44]
+	(No symbol) [0x00E3B41E]
+	(No symbol) [0x00E21B96]
+	(No symbol) [0x00DF3F3C]
+	(No symbol) [0x00DF4EBD]
+	GetHandleVerifier [0x0123AC73+3017699]
+	GetHandleVerifier [0x0124B93B+3086507]
+	GetHandleVerifier [0x012440F2+3055714]
+	GetHandleVerifier [0x00FF5AF0+637536]
+	(No symbol) [0x00EF0A5D]
+	(No symbol) [0x00EEDA28]
+	(No symbol) [0x00EEDBC5]
+	(No symbol) [0x00EE07F0]
+	BaseThreadInitThunk [0x76BF7BA9+25]
+	RtlInitializeExceptionChain [0x7731C0CB+107]
+	RtlClearBits [0x7731C04F+191]
+
+2025-01-08 20:21:25,237:WARNING:Could not upload image D:\Projects\scrape_upload_app\data\31033589\images\31033589_6.jpg: Message: no such element: Unable to locate element: {"method":"css selector","selector":"input[type='file']"}
+  (Session info: chrome=131.0.6778.265); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x00F5FD53+23747]
+	(No symbol) [0x00EE7D54]
+	(No symbol) [0x00DBBE53]
+	(No symbol) [0x00DFFCA6]
+	(No symbol) [0x00DFFEEB]
+	(No symbol) [0x00E3D852]
+	(No symbol) [0x00E21E44]
+	(No symbol) [0x00E3B41E]
+	(No symbol) [0x00E21B96]
+	(No symbol) [0x00DF3F3C]
+	(No symbol) [0x00DF4EBD]
+	GetHandleVerifier [0x0123AC73+3017699]
+	GetHandleVerifier [0x0124B93B+3086507]
+	GetHandleVerifier [0x012440F2+3055714]
+	GetHandleVerifier [0x00FF5AF0+637536]
+	(No symbol) [0x00EF0A5D]
+	(No symbol) [0x00EEDA28]
+	(No symbol) [0x00EEDBC5]
+	(No symbol) [0x00EE07F0]
+	BaseThreadInitThunk [0x76BF7BA9+25]
+	RtlInitializeExceptionChain [0x7731C0CB+107]
+	RtlClearBits [0x7731C04F+191]
+
+2025-01-08 20:21:42,416:INFO:Configuration loaded successfully.
+2025-01-08 20:21:45,786:INFO:Looking for JSON file at: D:\Projects\scrape_upload_app\data\31033589\31033589.json
+2025-01-08 20:21:45,802:INFO:Scraped data loaded successfully.
+2025-01-08 20:21:45,802:INFO:Uploader looking for JSON file at: D:\Projects\scrape_upload_app\data\31033589\31033589.json
+2025-01-08 20:21:45,802:INFO:JSON data loaded successfully.
+2025-01-08 20:21:45,802:INFO:====== WebDriver manager ======
+2025-01-08 20:21:46,497:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 20:21:46,772:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 20:21:47,031:INFO:Driver [C:\Users\georg\.wdm\drivers\chromedriver\win64\131.0.6778.264\chromedriver-win32/chromedriver.exe] found in cache
+2025-01-08 20:22:24,732:WARNING:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001BB6A360C90>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/aaf7bb2480eb52c84651f7c914b73bd4
+2025-01-08 20:22:28,789:WARNING:Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001BB6A363AD0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/aaf7bb2480eb52c84651f7c914b73bd4
+2025-01-08 20:22:38,267:INFO:Configuration loaded successfully.
+2025-01-08 20:22:42,488:INFO:Looking for JSON file at: D:\Projects\scrape_upload_app\data\31033589\31033589.json
+2025-01-08 20:22:42,488:INFO:Scraped data loaded successfully.
+2025-01-08 20:22:42,488:INFO:Uploader looking for JSON file at: D:\Projects\scrape_upload_app\data\31033589\31033589.json
+2025-01-08 20:22:42,488:INFO:JSON data loaded successfully.
+2025-01-08 20:22:42,488:INFO:====== WebDriver manager ======
+2025-01-08 20:22:43,168:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 20:22:43,448:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 20:22:43,696:INFO:Driver [C:\Users\georg\.wdm\drivers\chromedriver\win64\131.0.6778.264\chromedriver-win32/chromedriver.exe] found in cache
+2025-01-08 20:22:49,238:INFO:Configuration loaded successfully.
+2025-01-08 20:22:56,659:INFO:Looking for JSON file at: D:\Projects\scrape_upload_app\data\31033589\31033589.json
+2025-01-08 20:22:56,661:INFO:Scraped data loaded successfully.
+2025-01-08 20:22:56,661:INFO:Uploader looking for JSON file at: D:\Projects\scrape_upload_app\data\31033589\31033589.json
+2025-01-08 20:22:56,661:INFO:JSON data loaded successfully.
+2025-01-08 20:22:56,661:INFO:====== WebDriver manager ======
+2025-01-08 20:22:57,252:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 20:22:57,490:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 20:22:57,747:INFO:Driver [C:\Users\georg\.wdm\drivers\chromedriver\win64\131.0.6778.264\chromedriver-win32/chromedriver.exe] found in cache
+2025-01-08 20:23:34,705:WARNING:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000023B20C02D90>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/a9fedfdd5a22f6aa5a2f9d3800793b8d
+2025-01-08 20:23:38,766:WARNING:Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000023B20C038D0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/a9fedfdd5a22f6aa5a2f9d3800793b8d
+2025-01-08 20:23:42,821:WARNING:Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000023B218367D0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/a9fedfdd5a22f6aa5a2f9d3800793b8d
+2025-01-08 20:23:50,879:INFO:Uploader returned Final URL: None
+2025-01-08 20:27:37,507:INFO:Configuration loaded successfully.
+2025-01-08 20:27:43,202:INFO:Looking for JSON file at: D:\Projects\scrape_upload_app\data\31033589\31033589.json
+2025-01-08 20:27:43,202:INFO:Scraped data loaded successfully.
+2025-01-08 20:27:43,202:INFO:Uploader looking for JSON file at: D:\Projects\scrape_upload_app\data\31033589\31033589.json
+2025-01-08 20:27:43,202:INFO:JSON data loaded successfully.
+2025-01-08 20:27:43,202:INFO:====== WebDriver manager ======
+2025-01-08 20:27:44,562:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 20:27:44,968:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 20:27:45,219:INFO:Driver [C:\Users\georg\.wdm\drivers\chromedriver\win64\131.0.6778.264\chromedriver-win32/chromedriver.exe] found in cache
+2025-01-08 20:27:51,462:WARNING:Could not upload image D:\Projects\scrape_upload_app\data\31033589\images\31033589_1.jpg: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=131.0.6778.265)
+Stacktrace:
+	GetHandleVerifier [0x00F5FD53+23747]
+	(No symbol) [0x00EE7D54]
+	(No symbol) [0x00DBBE53]
+	(No symbol) [0x00D9D91B]
+	(No symbol) [0x00E27EFF]
+	(No symbol) [0x00E3AD49]
+	(No symbol) [0x00E21B96]
+	(No symbol) [0x00DF3F3C]
+	(No symbol) [0x00DF4EBD]
+	GetHandleVerifier [0x0123AC73+3017699]
+	GetHandleVerifier [0x0124B93B+3086507]
+	GetHandleVerifier [0x012440F2+3055714]
+	GetHandleVerifier [0x00FF5AF0+637536]
+	(No symbol) [0x00EF0A5D]
+	(No symbol) [0x00EEDA28]
+	(No symbol) [0x00EEDBC5]
+	(No symbol) [0x00EE07F0]
+	BaseThreadInitThunk [0x76BF7BA9+25]
+	RtlInitializeExceptionChain [0x7731C0CB+107]
+	RtlClearBits [0x7731C04F+191]
+
+2025-01-08 20:27:51,466:WARNING:Could not upload image D:\Projects\scrape_upload_app\data\31033589\images\31033589_2.jpg: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=131.0.6778.265)
+Stacktrace:
+	GetHandleVerifier [0x00F5FD53+23747]
+	(No symbol) [0x00EE7D54]
+	(No symbol) [0x00DBBE53]
+	(No symbol) [0x00D9D91B]
+	(No symbol) [0x00E27EFF]
+	(No symbol) [0x00E3AD49]
+	(No symbol) [0x00E21B96]
+	(No symbol) [0x00DF3F3C]
+	(No symbol) [0x00DF4EBD]
+	GetHandleVerifier [0x0123AC73+3017699]
+	GetHandleVerifier [0x0124B93B+3086507]
+	GetHandleVerifier [0x012440F2+3055714]
+	GetHandleVerifier [0x00FF5AF0+637536]
+	(No symbol) [0x00EF0A5D]
+	(No symbol) [0x00EEDA28]
+	(No symbol) [0x00EEDBC5]
+	(No symbol) [0x00EE07F0]
+	BaseThreadInitThunk [0x76BF7BA9+25]
+	RtlInitializeExceptionChain [0x7731C0CB+107]
+	RtlClearBits [0x7731C04F+191]
+
+2025-01-08 20:27:51,474:WARNING:Could not upload image D:\Projects\scrape_upload_app\data\31033589\images\31033589_3.jpg: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=131.0.6778.265)
+Stacktrace:
+	GetHandleVerifier [0x00F5FD53+23747]
+	(No symbol) [0x00EE7D54]
+	(No symbol) [0x00DBBE53]
+	(No symbol) [0x00D9D91B]
+	(No symbol) [0x00E27EFF]
+	(No symbol) [0x00E3AD49]
+	(No symbol) [0x00E21B96]
+	(No symbol) [0x00DF3F3C]
+	(No symbol) [0x00DF4EBD]
+	GetHandleVerifier [0x0123AC73+3017699]
+	GetHandleVerifier [0x0124B93B+3086507]
+	GetHandleVerifier [0x012440F2+3055714]
+	GetHandleVerifier [0x00FF5AF0+637536]
+	(No symbol) [0x00EF0A5D]
+	(No symbol) [0x00EEDA28]
+	(No symbol) [0x00EEDBC5]
+	(No symbol) [0x00EE07F0]
+	BaseThreadInitThunk [0x76BF7BA9+25]
+	RtlInitializeExceptionChain [0x7731C0CB+107]
+	RtlClearBits [0x7731C04F+191]
+
+2025-01-08 20:27:51,481:WARNING:Could not upload image D:\Projects\scrape_upload_app\data\31033589\images\31033589_5.jpg: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=131.0.6778.265)
+Stacktrace:
+	GetHandleVerifier [0x00F5FD53+23747]
+	(No symbol) [0x00EE7D54]
+	(No symbol) [0x00DBBE53]
+	(No symbol) [0x00D9D91B]
+	(No symbol) [0x00E27EFF]
+	(No symbol) [0x00E3AD49]
+	(No symbol) [0x00E21B96]
+	(No symbol) [0x00DF3F3C]
+	(No symbol) [0x00DF4EBD]
+	GetHandleVerifier [0x0123AC73+3017699]
+	GetHandleVerifier [0x0124B93B+3086507]
+	GetHandleVerifier [0x012440F2+3055714]
+	GetHandleVerifier [0x00FF5AF0+637536]
+	(No symbol) [0x00EF0A5D]
+	(No symbol) [0x00EEDA28]
+	(No symbol) [0x00EEDBC5]
+	(No symbol) [0x00EE07F0]
+	BaseThreadInitThunk [0x76BF7BA9+25]
+	RtlInitializeExceptionChain [0x7731C0CB+107]
+	RtlClearBits [0x7731C04F+191]
+
+2025-01-08 20:27:51,485:WARNING:Could not upload image D:\Projects\scrape_upload_app\data\31033589\images\31033589_6.jpg: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=131.0.6778.265)
+Stacktrace:
+	GetHandleVerifier [0x00F5FD53+23747]
+	(No symbol) [0x00EE7D54]
+	(No symbol) [0x00DBBE53]
+	(No symbol) [0x00D9D91B]
+	(No symbol) [0x00E27EFF]
+	(No symbol) [0x00E3AD49]
+	(No symbol) [0x00E21B96]
+	(No symbol) [0x00DF3F3C]
+	(No symbol) [0x00DF4EBD]
+	GetHandleVerifier [0x0123AC73+3017699]
+	GetHandleVerifier [0x0124B93B+3086507]
+	GetHandleVerifier [0x012440F2+3055714]
+	GetHandleVerifier [0x00FF5AF0+637536]
+	(No symbol) [0x00EF0A5D]
+	(No symbol) [0x00EEDA28]
+	(No symbol) [0x00EEDBC5]
+	(No symbol) [0x00EE07F0]
+	BaseThreadInitThunk [0x76BF7BA9+25]
+	RtlInitializeExceptionChain [0x7731C0CB+107]
+	RtlClearBits [0x7731C04F+191]
+
+2025-01-08 20:28:05,505:INFO:Configuration loaded successfully.
+2025-01-08 20:28:09,619:INFO:Looking for JSON file at: D:\Projects\scrape_upload_app\data\31033589\31033589.json
+2025-01-08 20:28:09,619:INFO:Scraped data loaded successfully.
+2025-01-08 20:28:09,619:INFO:Uploader looking for JSON file at: D:\Projects\scrape_upload_app\data\31033589\31033589.json
+2025-01-08 20:28:09,619:INFO:JSON data loaded successfully.
+2025-01-08 20:28:09,619:INFO:====== WebDriver manager ======
+2025-01-08 20:28:10,325:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 20:28:10,587:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 20:28:10,835:INFO:Driver [C:\Users\georg\.wdm\drivers\chromedriver\win64\131.0.6778.264\chromedriver-win32/chromedriver.exe] found in cache
+2025-01-08 20:28:48,447:WARNING:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001FE8BCD3E90>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/5d5ff16811053d2d66153b09de79284a
+2025-01-08 20:28:52,535:WARNING:Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001FE8DA38210>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/5d5ff16811053d2d66153b09de79284a
+2025-01-08 20:28:56,572:WARNING:Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001FE8DA387D0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/5d5ff16811053d2d66153b09de79284a
+2025-01-08 20:29:04,680:INFO:Uploader returned Final URL: None
+2025-01-08 20:30:45,694:INFO:Configuration loaded successfully.
+2025-01-08 20:30:50,094:INFO:Looking for JSON file at: D:\Projects\scrape_upload_app\data\31033589\31033589.json
+2025-01-08 20:30:50,094:INFO:Scraped data loaded successfully.
+2025-01-08 20:30:50,110:INFO:Uploader looking for JSON file at: D:\Projects\scrape_upload_app\data\31033589\31033589.json
+2025-01-08 20:30:50,111:INFO:JSON data loaded successfully.
+2025-01-08 20:30:50,111:INFO:====== WebDriver manager ======
+2025-01-08 20:30:51,026:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 20:30:51,329:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 20:30:51,605:INFO:Driver [C:\Users\georg\.wdm\drivers\chromedriver\win64\131.0.6778.264\chromedriver-win32/chromedriver.exe] found in cache
+2025-01-08 20:31:34,524:INFO:Uploader returned Final URL: https://home.ss.ge/ka/udzravi-qoneba/31042103
+2025-01-08 20:31:34,648:INFO:Final URL updated in Excel for Ad ID: 31033589
+2025-01-08 20:33:08,671:INFO:Running scraper with data directory: D:\Projects\scrape_upload_app\data
+2025-01-08 20:33:08,679:INFO:====== WebDriver manager ======
+2025-01-08 20:33:09,446:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 20:33:09,721:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 20:33:10,012:INFO:Driver [C:\Users\georg\.wdm\drivers\chromedriver\win64\131.0.6778.264\chromedriver-win32/chromedriver.exe] found in cache
+2025-01-08 20:33:22,484:INFO:Scraper returned Ad ID: 31034317
+2025-01-08 20:33:22,484:INFO:Looking for JSON file at: D:\Projects\scrape_upload_app\data\31034317\31034317.json
+2025-01-08 20:33:22,499:INFO:Scraped data loaded successfully.
+2025-01-08 20:33:22,651:INFO:Data appended to Excel for Ad ID: 31034317
+2025-01-08 20:33:22,651:INFO:Uploader looking for JSON file at: D:\Projects\scrape_upload_app\data\31034317\31034317.json
+2025-01-08 20:33:22,652:INFO:JSON data loaded successfully.
+2025-01-08 20:33:22,652:INFO:====== WebDriver manager ======
+2025-01-08 20:33:23,335:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 20:33:23,610:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 20:33:23,865:INFO:Driver [C:\Users\georg\.wdm\drivers\chromedriver\win64\131.0.6778.264\chromedriver-win32/chromedriver.exe] found in cache
+2025-01-08 20:55:16,741:INFO:Configuration loaded successfully.
+2025-01-08 20:55:16,780:INFO:Excel file created with limited columns.
+2025-01-08 20:57:22,155:INFO:Configuration loaded successfully.
+2025-01-08 20:57:49,490:INFO:Running scraper with data directory: D:\Projects\scrape_upload_app\data
+2025-01-08 20:57:49,490:INFO:====== WebDriver manager ======
+2025-01-08 20:57:50,491:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 20:57:50,772:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 20:57:51,044:INFO:Driver [C:\Users\georg\.wdm\drivers\chromedriver\win64\131.0.6778.264\chromedriver-win32/chromedriver.exe] found in cache
+2025-01-08 20:58:03,975:INFO:Scraper returned Ad ID: 31034317
+2025-01-08 20:58:03,975:INFO:Scraped data loaded successfully.
+2025-01-08 20:58:04,054:INFO:Data appended to Excel for Ad ID: 31034317
+2025-01-08 21:22:32,792:INFO:Configuration loaded successfully.
+2025-01-08 21:23:04,453:INFO:Running scraper with data directory: D:\Projects\scrape_upload_app\data
+2025-01-08 21:23:04,455:INFO:====== WebDriver manager ======
+2025-01-08 21:23:05,244:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 21:23:05,544:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 21:23:05,821:INFO:Driver [C:\Users\georg\.wdm\drivers\chromedriver\win64\131.0.6778.264\chromedriver-win32/chromedriver.exe] found in cache
+2025-01-08 21:23:18,541:INFO:Scraper returned Ad ID: 31034317
+2025-01-08 21:23:18,544:INFO:Scraped data loaded successfully.
+2025-01-08 21:23:18,607:INFO:Excel file created with the necessary columns.
+2025-01-08 21:23:18,656:INFO:Data appended to Excel for Ad ID: 31034317
+2025-01-08 21:23:18,656:INFO:Uploader looking for JSON file at: D:\Projects\scrape_upload_app\data\31034317\31034317.json
+2025-01-08 21:23:18,657:INFO:JSON data loaded successfully.
+2025-01-08 21:23:18,658:INFO:====== WebDriver manager ======
+2025-01-08 21:23:19,272:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 21:23:19,532:INFO:Get LATEST chromedriver version for google-chrome
+2025-01-08 21:23:19,784:INFO:Driver [C:\Users\georg\.wdm\drivers\chromedriver\win64\131.0.6778.264\chromedriver-win32/chromedriver.exe] found in cache
+2025-01-08 21:24:06,495:INFO:Uploader returned Final URL: https://home.ss.ge/ka/udzravi-qoneba/31042193
+2025-01-08 21:24:06,547:INFO:Excel updated with timestamp and final URL for Ad ID: 31034317

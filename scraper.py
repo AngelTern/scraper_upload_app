@@ -275,6 +275,8 @@ def run_scraper(url, agency_price, comment="", headless=False, stop_event=None, 
             if elements:
                 description = elements[0].text
                 return True
+            else:
+                return True
             return False
 
         if not custom_wait(driver, get_description, stop_event=stop_event):
